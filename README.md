@@ -9,7 +9,7 @@ https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/LiberationMono.
 Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Console\TrueTypeFont  "LiterationMono Nerd Font"
 
 ## Prerequisites
-choco install lazygit mingw ripgrep fd -y
+choco install lazygit mingw ripgrep fd git neovim -y
 
 ## Install
 git clone https://github.com/nlahmi/nvim-config $env:LOCALAPPDATA\nvim
