@@ -9,8 +9,25 @@ Get-ChildItem -Recurse -include *.ttf | % { $fonts.CopyHere($_.fullname) }
 # Set it as option in legacy CMD
 New-ItemProperty -LiteralPath "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Console\TrueTypeFont" -name 7778 -PropertyType String -Value "LiterationMono Nerd Font"
 
-# Todo: Set it as default on legacy CMD
-# Todo: Set it as default on Windows Terminal
+# Set it as default on legacy CMD
+Set-ItemProperty -LiteralPath "HKCU:\Console" -name "FaceName" -Value "LiterationMono Nerd Font Mono"
+
+# Set it as default on Windows Terminal
+$p = $env:localappdata + "\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
+if (Test-Path $p) {
+    
+    # Make a copy
+    Copy-Item $p ($p + ".bak")
+    
+    # Read and parse the json
+    $decoded = Get-Content $p -Raw | ConvertFrom-Json
+    
+    # Add the font setting to the default profile
+    Add-Member -InputObject $decoded.profiles.defaults -NotePropertyName font -NotePropertyValue @{face="LiterationMono Nerd Font Mono"} -ErrorAction Ignore
+    
+    # Save the file
+    $decoded | ConvertTo-Json -Depth 100 -Compress | Set-Content $p
+}
 
 # Install deps
 choco install lazygit mingw ripgrep fd git neovim -y
