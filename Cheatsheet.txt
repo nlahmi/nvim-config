@@ -1,0 +1,13 @@
+Just some bindings I want to remember
+Some useful links:
+https://becksteinlab.physics.asu.edu/pages/unix/IntroUnix/vim_basics.html
+https://stackoverflow.com/a/1220118/2039867
+https://www.youtube.com/watch?v=HhZJ1kbzkj0
+
+        
+m<register>            - Set "mark" (bookmark)
+`<register>            - Jump to mark (can be a bookmark)
+`'                     - Jump to last position (tho I think there's another way to do this)
+
+q<register><commands>q - Record macro
+@<register>            - Use Macro
