@@ -1,10 +1,6 @@
 return {
-  { "sainnhe/gruvbox-material" },
-
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "gruvbox-material",
-    },
-  },
+    "sainnhe/gruvbox-material",
+    config = function()
+        vim.cmd.colorscheme "gruvbox-material"
+    end
 }
