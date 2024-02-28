@@ -11,10 +11,10 @@ end
 return {
 
     get_py_exe = function(install_path)
-        if File_exists(install_path .. "/venv/bin/python") then
-            return install_path .. "/venv/bin/python"
+        if File_exists(install_path .. "/venv/bin/pythonw") then
+            return install_path .. "/venv/bin/pythonw"
         end
-        return install_path .. "/venv/Scripts/python"
+        return install_path .. "/venv/Scripts/pythonw"
     end,
 
     icons = {
