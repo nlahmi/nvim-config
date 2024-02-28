@@ -1,6 +1,6 @@
 return {
   "nvimtools/none-ls.nvim",
-    keys = { { "<leader>gf", vim.lsp.buf.format, desc = "Format" } },
+    -- keys = { { "<leader>gf", vim.lsp.buf.format, desc = "Format" } },
   config = function()
     local null_ls = require("null-ls")
     null_ls.setup({

@@ -1,9 +1,11 @@
-local lang = require("plugins.lsp.lang.python")
+--local lang = require("plugins.lsp.lang.python")
+local lang = require("plugins.lsp.lang.all")
+-- local lang = {}
 
 return {
   -- Source: https://www.lazyvim.org/plugins/lsp#masonnvim-1
   "williamboman/mason.nvim",
-  keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
+  keys = { { "<leader>pm", "<cmd>Mason<cr>", desc = "Mason" } },
   build = ":MasonUpdate",
   opts = {
     ensure_installed = lang.mason_packages,

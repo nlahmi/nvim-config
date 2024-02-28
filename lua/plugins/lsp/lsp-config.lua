@@ -1,10 +1,10 @@
+local lang = require("plugins.lsp.lang.all")
+
 local fn = vim.fn
 local api = vim.api
 local keymap = vim.keymap
 local lsp = vim.lsp
 local diagnostic = vim.diagnostic
-
-local lang = require("plugins.lsp.lang.python")
 
 -- Source: https://github.com/jdhao/nvim-config/blob/master/lua/config/lsp.lua
 
@@ -35,20 +35,20 @@ local custom_attach = function(client, bufnr)
   map("n", "<C-]>", vim.lsp.buf.definition)
   map("n", "K", vim.lsp.buf.hover)
   map("n", "<C-k>", vim.lsp.buf.signature_help)
-  map("n", "<leader>rn", vim.lsp.buf.rename, { desc = "varialbe rename" })
+  map("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename Variable" })
   map("n", "gr", vim.lsp.buf.references, { desc = "show references" })
   map("n", "[d", diagnostic.goto_prev, { desc = "previous diagnostic" })
   map("n", "]d", diagnostic.goto_next, { desc = "next diagnostic" })
   -- this puts diagnostics from opened files to quickfix
-  map("n", "<leader>qw", diagnostic.setqflist, { desc = "put window diagnostics to qf" })
+  map("n", "<leader>xw", diagnostic.setqflist, { desc = "put window diagnostics to qf" })
   -- this puts diagnostics from current buffer to quickfix
-  map("n", "<leader>qb", function()
+  map("n", "<leader>xb", function()
     set_qflist(bufnr)
   end, { desc = "put buffer diagnostics to qf" })
 
   map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP code action" })
-  map("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, { desc = "add workspace folder" })
-  map("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, { desc = "remove workspace folder" })
+  map("n", "<leader>cwa", vim.lsp.buf.add_workspace_folder, { desc = "add workspace folder" })
+  map("n", "<leader>cwr", vim.lsp.buf.remove_workspace_folder, { desc = "remove workspace folder" })
   map("n", "<leader>co", function()
     vim.lsp.buf.code_action({
       apply = true,
@@ -58,13 +58,13 @@ local custom_attach = function(client, bufnr)
       },
     })
   end, { desc = "Organize Imports" })
-  map("n", "<leader>wl", function()
+  map("n", "<leader>cwl", function()
     vim.inspect(vim.lsp.buf.list_workspace_folders())
   end, { desc = "list workspace folder" })
 
   -- Set some key bindings conditional on server capabilities
   if client.server_capabilities.documentFormattingProvider then
-    map("n", "<leader>cf", vim.lsp.buf.format, { desc = "format code" })
+    map("n", "<leader>cf", vim.lsp.buf.format, { desc = "Format" })
   end
 
   api.nvim_create_autocmd("CursorHold", {
@@ -124,6 +124,12 @@ local custom_attach = function(client, bufnr)
     local msg = string.format("Language server %s started!", client.name)
     vim.notify(msg, vim.log.levels.DEBUG, { title = "Nvim-config" })
   end
+  
+  -- Disable hover in ruff
+  if client.name == 'ruff_lsp' then
+    -- Disable hover in favor of Pyright
+    client.server_capabilities.hoverProvider = false
+  end
 end
 
 return {
@@ -144,12 +150,14 @@ return {
         capabilities = capabilities,
       })
 
-      lang.lsp_config(lspconfig, capabilities, custom_attach)
+    for i, f in pairs(lang.lsp_config) do
+        f(lspconfig, capabilities, custom_attach)
+    end
 
-      vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-      vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
-      vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
-      vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
+      vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
+      vim.keymap.set("n", "<leader>cd", vim.lsp.buf.definition, { desc = "Go to Definition" })
+      vim.keymap.set("n", "<leader>cr", vim.lsp.buf.references, { desc = "Go to References" })
+      -- vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
     end,
   },
 }

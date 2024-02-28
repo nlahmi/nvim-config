@@ -1,4 +1,3 @@
-
 -- better up/down
 vim.keymap.set({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 vim.keymap.set({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
@@ -32,6 +31,9 @@ vim.keymap.set("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 vim.keymap.set("n", "]b", "<cmd>bnext<cr>", { desc = "Next buffer" })
 vim.keymap.set("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
 vim.keymap.set("n", "<leader>`", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
+
+vim.keymap.set("n", "<leader>bd", "<cmd>bn<cr> <cmd>bd#<cr>", { desc = "Switch and Delete Buffer" })
+vim.keymap.set("n", "<leader>bD", "<cmd>bd<cr>", { desc = "Delete Current Buffer" })
 
 -- Clear search with <esc>
 vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
@@ -69,10 +71,10 @@ vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
 -- lazy
-vim.keymap.set("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
+vim.keymap.set("n", "<leader>pl", "<cmd>Lazy<cr>", { desc = "Lazy" })
 
 -- new file
-vim.keymap.set("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
+vim.keymap.set("n", "<leader>fn","<cmd>enew<cr>", { desc = "New File" })
 
 vim.keymap.set("n", "<leader>xl", "<cmd>lopen<cr>", { desc = "Location List" })
 vim.keymap.set("n", "<leader>xq", "<cmd>copen<cr>", { desc = "Quickfix List" })
@@ -111,7 +113,7 @@ vim.keymap.set("n", "[w", diagnostic_goto(false, "WARN"), { desc = "Prev Warning
 --vim.keymap.set("n", "<leader>uL", function() Util.toggle("relativenumber") end, { desc = "Toggle Relative Line Numbers" })
 --vim.keymap.set("n", "<leader>ul", function() Util.toggle.number() end, { desc = "Toggle Line Numbers" })
 --vim.keymap.set("n", "<leader>ud", function() Util.toggle.diagnostics() end, { desc = "Toggle Diagnostics" })
-local conceallevel = vim.o.conceallevel > 0 and vim.o.conceallevel or 3
+-- local conceallevel = vim.o.conceallevel > 0 and vim.o.conceallevel or 3
 --vim.keymap.set("n", "<leader>uc", function() Util.toggle("conceallevel", false, {0, conceallevel}) end, { desc = "Toggle Conceal" })
 --if vim.lsp.buf.inlay_hint or vim.lsp.inlay_hint then
   --vim.keymap.set( "n", "<leader>uh", function() Util.toggle.inlay_hints() end, { desc = "Toggle Inlay Hints" })
@@ -148,13 +150,13 @@ vim.keymap.set("t", "<C-l>", "<cmd>wincmd l<cr>", { desc = "Go to right window" 
 vim.keymap.set("t", "<C-/>", "<cmd>close<cr>", { desc = "Hide Terminal" })
 vim.keymap.set("t", "<c-_>", "<cmd>close<cr>", { desc = "which_key_ignore" })
 
--- windows
-vim.keymap.set("n", "<leader>ww", "<C-W>p", { desc = "Other window", remap = true })
-vim.keymap.set("n", "<leader>wd", "<C-W>c", { desc = "Delete window", remap = true })
-vim.keymap.set("n", "<leader>w-", "<C-W>s", { desc = "Split window below", remap = true })
-vim.keymap.set("n", "<leader>w|", "<C-W>v", { desc = "Split window right", remap = true })
-vim.keymap.set("n", "<leader>-", "<C-W>s", { desc = "Split window below", remap = true })
-vim.keymap.set("n", "<leader>|", "<C-W>v", { desc = "Split window right", remap = true })
+-- -- windows
+-- vim.keymap.set("n", "<leader>ww", "<C-W>p", { desc = "Other window", remap = true })
+-- vim.keymap.set("n", "<leader>wd", "<C-W>c", { desc = "Delete window", remap = true })
+-- vim.keymap.set("n", "<leader>w-", "<C-W>s", { desc = "Split window below", remap = true })
+-- vim.keymap.set("n", "<leader>w|", "<C-W>v", { desc = "Split window right", remap = true })
+-- vim.keymap.set("n", "<leader>-", "<C-W>s", { desc = "Split window below", remap = true })
+-- vim.keymap.set("n", "<leader>|", "<C-W>v", { desc = "Split window right", remap = true })
 
 -- tabs
 vim.keymap.set("n", "<leader><tab>l", "<cmd>tablast<cr>", { desc = "Last Tab" })
@@ -166,12 +168,17 @@ vim.keymap.set("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous
 
 --vim.keymap.set("n", "<esc>", ":nohlsearch<CR>")
 
+-- run
+-- Todo: move this to it's lsp config and specify ft
+vim.keymap.set("n", "<leader>rk", "<cmd>!kubectl apply -f %<cr>", { desc = "Kubectl Apply Current File" })
+
+
+vim.keymap.set("n", "<leader>fp", "<cmd>lcd%:p:h<cr>", { desc = "PWD to Current File" })
 
 -- Neovide
-if vim.g.neovide then
-end
-
-vim.keymap.set('n', '<C-s>', ':w<CR>') -- Save
+-- if vim.g.neovide then
+-- end
+-- vim.keymap.set('n', '<C-s>', ':w<CR>') -- Save
 vim.keymap.set('v', '<C-c>', '"+y') -- Copy
 vim.keymap.set('n', '<C-v>', '"+P') -- Paste normal mode
 vim.keymap.set('v', '<C-v>', '"+P') -- Paste visual mode
