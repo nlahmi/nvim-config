@@ -11,6 +11,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("keymaps")
 require("vim-options")
+require("keymaps")
 require("lazy").setup("plugins")
