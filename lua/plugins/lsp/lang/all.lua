@@ -1,6 +1,8 @@
 local all_langs = {
     require("plugins.lsp.lang.python"),
-    require("plugins.lsp.lang.lua")
+    require("plugins.lsp.lang.lua"),
+    require("plugins.lsp.lang.markdown"),
+    require("plugins.lsp.lang.java"),
 }
 
 local out = {

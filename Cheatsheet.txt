@@ -11,3 +11,5 @@ m<register>            - Set "mark" (bookmark)
 
 q<register><commands>q - Record macro
 @<register>            - Use Macro
+
+:set syntax=html       - Force Linting for a specific lang even if file extension doesn't match
