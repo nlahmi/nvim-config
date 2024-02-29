@@ -30,7 +30,7 @@ if (Test-Path $p) {
 }
 
 # Install deps
-choco install lazygit mingw ripgrep fd git neovim -y
+choco install lazygit mingw ripgrep fd git neovim neovide -y
 
 # Install lazy-nvim
 git clone https://github.com/nlahmi/nvim-config $env:LOCALAPPDATA\nvim
