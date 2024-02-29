@@ -150,7 +150,7 @@ return {
         capabilities = capabilities,
       })
 
-    for i, f in pairs(lang.lsp_config) do
+    for _, f in pairs(lang.lsp_config) do
         f(lspconfig, capabilities, custom_attach)
     end
 

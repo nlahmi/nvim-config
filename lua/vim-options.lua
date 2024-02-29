@@ -4,14 +4,15 @@ vim.cmd("set softtabstop=4")
 vim.cmd("set shiftwidth=4")
 vim.g.mapleader = " "
 
--- Navigate vim panes better
---vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")
---vim.keymap.set("n", "<c-j>", ":wincmd j<CR>")
---vim.keymap.set("n", "<c-h>", ":wincmd h<CR>")
---vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")
-
---vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>")
 vim.wo.number = true
-
--- n.lahmi
 vim.wo.relativenumber = true
+
+-- Save undo history
+vim.o.undofile = true
+
+-- Case insensitive searching UNLESS /C or capital in search
+vim.o.ignorecase = true
+vim.o.smartcase = true
+
+-- CursorHold event trigger time
+vim.opt.updatetime=300

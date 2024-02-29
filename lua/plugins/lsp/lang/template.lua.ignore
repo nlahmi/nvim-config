@@ -1,0 +1,13 @@
+return {
+    packages = {
+    },
+
+    mason_packages = {
+    },
+
+    nonls_packages = {
+    },
+
+    lsp_config = {
+    },
+}
