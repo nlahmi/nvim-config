@@ -18,6 +18,7 @@ return {
     { "<leader>gE", "<cmd>Gedit<cr>", desc = "Edit" },
     { "<leader>gg", "<cmd>Git<cr>", desc = "Summary" },
     { "<leader>gk", ask_commit_msg, desc = "Commit and Push" },
+        -- blah blah
     { "<leader>gK", function() add_commit_push("auto commit") end, desc = "Auto Commit" },
     { "<leader>gl", "<cmd>Git log<cr>", desc = "Log" },
     { "<leader>gp", "<cmd>Git push<cr>", desc = "Push" },
