@@ -21,8 +21,8 @@ all those above will save and kill first the running instance
 - [ ] find a way to focus on current debug line (https://github.com/ofirgall/goto-breakpoints.nvim)
 - [ ] Jump to buffer by number
 - [ ] More session keys
-- [!] git keymaps
-- [!] Save all (and exit?)
+- [x] git keymaps
+- [!] Save all (and exit?) - implement a save-all util function. use it with git commits, debug, run etc.
 - [ ] Make <tab> move down in the autocomplete list (currently it's with the arrows) - and of course shift+tab to go up
 - [ ] Open terminal to the side (:vsplit | term c)
 
