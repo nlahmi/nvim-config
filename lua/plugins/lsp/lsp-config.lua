@@ -31,24 +31,24 @@ local custom_attach = function(client, bufnr)
   end
 
   -- Todo: debug these, they don't show up in which-key and don't always work
-  map("n", "gd", vim.lsp.buf.definition, { desc = "go to definition" })
-  map("n", "<C-]>", vim.lsp.buf.definition)
-  map("n", "K", vim.lsp.buf.hover)
-  map("n", "<C-k>", vim.lsp.buf.signature_help)
+  map("n", "gd", vim.lsp.buf.definition, { desc = "Go to Definition" })
+  map("n", "<C-]>", vim.lsp.buf.definition, { desc = "Go to Definition" })
+  map("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
+  map("n", "<leader>cs", vim.lsp.buf.signature_help, { desc = "Signature" })
   map("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename Variable" })
-  map("n", "gr", vim.lsp.buf.references, { desc = "show references" })
-  map("n", "[d", diagnostic.goto_prev, { desc = "previous diagnostic" })
-  map("n", "]d", diagnostic.goto_next, { desc = "next diagnostic" })
+  map("n", "gr", vim.lsp.buf.references, { desc = "Show References" })
+  map("n", "[d", diagnostic.goto_prev, { desc = "Previous Piagnostic" })
+  map("n", "]d", diagnostic.goto_next, { desc = "Next Diagnostic" })
   -- this puts diagnostics from opened files to quickfix
-  map("n", "<leader>xw", diagnostic.setqflist, { desc = "put window diagnostics to qf" })
+  map("n", "<leader>xw", diagnostic.setqflist, { desc = "Put Window Diagnostics to qf" })
   -- this puts diagnostics from current buffer to quickfix
   map("n", "<leader>xb", function()
     set_qflist(bufnr)
   end, { desc = "put buffer diagnostics to qf" })
 
   map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP code action" })
-  map("n", "<leader>cwa", vim.lsp.buf.add_workspace_folder, { desc = "add workspace folder" })
-  map("n", "<leader>cwr", vim.lsp.buf.remove_workspace_folder, { desc = "remove workspace folder" })
+  map("n", "<leader>cwa", vim.lsp.buf.add_workspace_folder, { desc = "Add Workspace Folder" })
+  map("n", "<leader>cwr", vim.lsp.buf.remove_workspace_folder, { desc = "Remove Workspace Folder" })
   map("n", "<leader>co", function()
     vim.lsp.buf.code_action({
       apply = true,
@@ -60,7 +60,7 @@ local custom_attach = function(client, bufnr)
   end, { desc = "Organize Imports" })
   map("n", "<leader>cwl", function()
     vim.inspect(vim.lsp.buf.list_workspace_folders())
-  end, { desc = "list workspace folder" })
+  end, { desc = "List Workspace Folder" })
 
   -- Set some key bindings conditional on server capabilities
   if client.server_capabilities.documentFormattingProvider then
