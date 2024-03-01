@@ -17,23 +17,25 @@ end
 
 return {
   packages = {
-    {
-      "neovim/nvim-lspconfig",
-      opts = {
-        -- make sure mason installs the server
-        servers = {
-          jdtls = {},
-        },
-        setup = {
-          jdtls = function()
-            return true -- avoid duplicate servers
-          end,
-        },
-      },
-    },
+    -- {
+    --   "neovim/nvim-lspconfig",
+    --   opts = {
+    --     -- make sure mason installs the server
+    --     servers = {
+    --       jdtls = {},
+    --     },
+    --     setup = {
+    --       jdtls = function()
+    --         return true -- avoid duplicate servers
+    --       end,
+    --     },
+    --   },
+    -- },
     {
       "mfussenegger/nvim-jdtls",
       dependencies = { "folke/which-key.nvim" },
+      keys = { { "<leader>ca", vim.lsp.buf.code_action, desc = "LSP Code Action" },
+                { "<leader>rb", "<cmd>!gradle build<cr>", desc = "Build (Gradle)" }, },
       ft = java_filetypes,
       opts = function()
         return {

@@ -1,6 +1,7 @@
 # Fix
 - [!] Import errors (venv not detected by LSP) in python - https://github.com/linux-cultist/venv-selector.nvim?tab=readme-ov-file#hooks
 - [ ] Not super urgent: Give desc to automatic keymaps (fuzzy search <Plug>)
+- [ ] Java DAP not working and some lsp keybinds dont work in Java
 
 
 # Hotkeys
@@ -22,6 +23,7 @@ all those above will save and kill first the running instance
 - [ ] More session keys
 - [!] git keymaps
 - [!] Save all (and exit?)
+- [ ] Make <tab> move down in the autocomplete list (currently it's with the arrows) - and of course shift+tab to go up
 
 
 # Settings
@@ -50,7 +52,7 @@ https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.m
 - [ ] https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/lang/rust.lua
 - [ ] https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/lang/ruby.lua
 - [ ] https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/lang/omnisharp.lua
-- [ ] https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/lang/java.lua
+- [W] https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/lang/java.lua
 - [ ] https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/lang/go.lua
 - [ ] https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/lang/clangd.lua
 - [ ] https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/lang/cmake.lua
