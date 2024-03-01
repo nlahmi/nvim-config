@@ -24,6 +24,7 @@ all those above will save and kill first the running instance
 - [!] git keymaps
 - [!] Save all (and exit?)
 - [ ] Make <tab> move down in the autocomplete list (currently it's with the arrows) - and of course shift+tab to go up
+- [ ] Open terminal to the side (:vsplit | term c)
 
 
 # Settings
@@ -33,6 +34,8 @@ Good source: https://github.com/omerxx/dotfiles/blob/master/nvim/lua/options.lua
 - [x] Case insensitive searching UNLESS /C or capital in search
     vim.o.ignorecase = true
     vim.o.smartcase = true
+- [ ] Split to the right instead of the left (vim.opt.splitright = true)
+- [ ] Add git info to statusline (with fugitive %{FugitiveStatusline()})
 
 
 # Languages
