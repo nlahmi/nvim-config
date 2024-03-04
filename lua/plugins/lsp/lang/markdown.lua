@@ -1,14 +1,5 @@
 return {
     packages = {
-        -- Todo: Check if this is actually required
-        -- {
-        --   "neovim/nvim-lspconfig",
-        --   opts = {
-        --     servers = {
-        --       marksman = {},
-        --     },
-        --   },
-        -- },
         {
             "nvimtools/none-ls.nvim",
             optional = true,
@@ -30,6 +21,7 @@ return {
             },
         },
         {
+            -- Todo: Check if this is actually required
             "neovim/nvim-lspconfig",
             opts = {
                 servers = {
@@ -86,11 +78,16 @@ return {
     mason_packages = {
         "markdownlint",
         "marksman",
+        "prettier",
     },
 
     nonls_packages = {
         -- require("null-ls").builtins.diagnostics.markdownlint,
     },
 
-    lsp_config = {},
+    lsp_config = {
+        function(lspconfig, capabilities, custom_attach)
+            require("lspconfig").marksman.setup({ on_attach = custom_attach })
+        end,
+    },
 }
