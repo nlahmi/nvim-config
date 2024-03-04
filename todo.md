@@ -75,13 +75,18 @@ https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.m
 - [ ] https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#nginx_language_server
 - [ ] https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#openscad_lsp
 - [ ] https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#phpactor
-
-    
+- [ ] Latex - https://github.com/lervag/vimtex?tab=readme-ov-file - https://github.com/circuitikz/circuitikz
+- [ ] OpenAPI/Swagger - https://github.com/daveshanley/vacuum
+    https://github.com/luizcorreia/spectral-language-server
+    https://github.com/vinnymeller/swagger-preview.nvim
+    https://github.com/shuntaka9576/preview-swagger.nvim
+    https://github.com/rusagaib/oas-preview.nvim
+    https://github.com/b0o/SchemaStore.nvim
 # Plugins
 ## Must-Have
 - [x] https://github.com/chipsenkbeil/distant.nvim
 - [!] https://github.com/voldikss/vim-browser-search
-- [ ] https://github.com/tpope/vim-surround
+- [x] https://github.com/tpope/vim-surround - used surround.mini
 - [x] https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-bufremove.md
 - [!] https://github.com/Dax89/automaton.nvim
 - [ ] https://github.com/tpope/vim-sleuth
