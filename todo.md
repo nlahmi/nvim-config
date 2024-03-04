@@ -55,7 +55,7 @@ https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.m
 - [ ] https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/lang/rust.lua
 - [ ] https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/lang/ruby.lua
 - [ ] https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/lang/omnisharp.lua
-- [W] https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/lang/java.lua
+- [x] https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/lang/java.lua - Mostly works (no DAP)
 - [ ] https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/lang/go.lua
 - [ ] https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/lang/clangd.lua
 - [ ] https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/lang/cmake.lua
@@ -79,10 +79,10 @@ https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.m
     
 # Plugins
 ## Must-Have
-- [!] https://github.com/chipsenkbeil/distant.nvim
+- [x] https://github.com/chipsenkbeil/distant.nvim
 - [!] https://github.com/voldikss/vim-browser-search
 - [ ] https://github.com/tpope/vim-surround
-- [!] https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-bufremove.md
+- [x] https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-bufremove.md
 - [!] https://github.com/Dax89/automaton.nvim
 - [ ] https://github.com/tpope/vim-sleuth
 - [ ] https://github.com/nvim-neo-tree/neo-tree.nvim
