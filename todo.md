@@ -85,7 +85,7 @@ https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.m
 # Plugins
 ## Must-Have
 - [x] https://github.com/chipsenkbeil/distant.nvim
-- [!] https://github.com/voldikss/vim-browser-search
+- [x] https://github.com/voldikss/vim-browser-search
 - [x] https://github.com/tpope/vim-surround - used surround.mini
 - [x] https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-bufremove.md
 - [!] https://github.com/Dax89/automaton.nvim
@@ -97,6 +97,7 @@ https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.m
 - [ ] https://github.com/ofirgall/goto-breakpoints.nvim
 - [!] https://github.com/Weissle/persistent-breakpoints.nvim
 - [ ] https://github.com/LiadOz/nvim-dap-repl-highlights
+- [ ] https://github.com/hedyhli/outline.nvim
 
 ## Optional
 - [ ] https://github.com/ThePrimeagen/harpoon/tree/harpoon2
