@@ -6,6 +6,7 @@ return {
     opts = {},
     keys = {
       { "<leader>rr", "<cmd>CompilerStop<cr><cmd>CompilerRedo<cr>", desc = "Run with Last Config" },
+      { "<leader>rs", "<cmd>CompilerStop<cr>", desc = "Run with Last Config" },
       { "<leader>rc", "<cmd>CompilerOpen<cr>", desc = "Compile Menu" },
       { "<leader>rt", "<cmd>CompilerToggleResults<cr>", desc = "Toggle Compiler Results" },
     },

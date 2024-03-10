@@ -11,6 +11,7 @@ return {
   },
   {
     "hrsh7th/nvim-cmp",
+    -- opts = {sorting = {comparators = require("clangd_extensions.cmp_scores")}},
     config = function()
       local cmp = require("cmp")
       require("luasnip.loaders.from_vscode").lazy_load()
@@ -33,10 +34,12 @@ return {
           ["<CR>"] = cmp.mapping.confirm({ select = true }),
         }),
         sources = cmp.config.sources({
+          -- { name = "path" },
+          -- { name = "automatonschema" },
+          -- { name = "automatonvariable" },
           { name = "nvim_lsp" },
           { name = "luasnip" }, -- For luasnip users.
-        }, {
-          { name = "buffer" },
+          -- { name = "buffer" },
         }),
       })
     end,
