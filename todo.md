@@ -47,9 +47,9 @@ https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.m
 - [!] https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/lang/yaml.lua
 - [ ] https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#powershell_es
 - [!] kubernetes: https://joshrosso.com/c/vim-k8s-yaml-support/
-- [ ] https://github.com/BlackLight/nvim-http
 
 ## Optional:
+- [ ] https://github.com/BlackLight/nvim-http
 - [ ] https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/lang/typescript.lua
 - [ ] https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/lang/terraform.lua
 - [ ] https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/lang/rust.lua
@@ -84,6 +84,7 @@ https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.m
     https://github.com/b0o/SchemaStore.nvim
 # Plugins
 ## Must-Have
+- [!] Code folding (like in lazyvim)
 - [x] https://github.com/chipsenkbeil/distant.nvim
 - [x] https://github.com/voldikss/vim-browser-search
 - [x] https://github.com/tpope/vim-surround - used surround.mini

@@ -3,6 +3,7 @@ local all_langs = {
     require("plugins.lsp.lang.lua"),
     require("plugins.lsp.lang.markdown"),
     require("plugins.lsp.lang.java"),
+    require("plugins.lsp.lang.clangd"),
 }
 
 local out = {
@@ -10,11 +11,14 @@ local out = {
     mason_packages = {},
     nonls_packages = {},
     lsp_config = {},
+    dap_config = {},
 }
 
 for _, curr_lang in ipairs(all_langs) do
     for key, v in pairs(out) do
-       vim.list_extend(v, curr_lang[key])
+        if curr_lang[key] ~= nil then
+            vim.list_extend(v, curr_lang[key])
+        end
     end
 end
 
