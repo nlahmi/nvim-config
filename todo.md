@@ -100,6 +100,7 @@ https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.m
 - [!] https://github.com/Weissle/persistent-breakpoints.nvim
 - [ ] https://github.com/LiadOz/nvim-dap-repl-highlights
 - [ ] https://github.com/hedyhli/outline.nvim
+- [x] https://github.com/nvimdev/template.nvim
 
 ## Optional
 - [ ] https://github.com/ThePrimeagen/harpoon/tree/harpoon2
