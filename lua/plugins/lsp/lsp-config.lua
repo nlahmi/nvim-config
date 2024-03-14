@@ -63,9 +63,9 @@ local custom_attach = function(client, bufnr)
   end, { desc = "List Workspace Folder" })
 
   -- Set some key bindings conditional on server capabilities
-  if client.server_capabilities.documentFormattingProvider then
-    map("n", "<leader>cf", vim.lsp.buf.format, { desc = "Format" })
-  end
+  -- if client.server_capabilities.documentFormattingProvider then
+  map("n", "<leader>cf", vim.lsp.buf.format, { desc = "Format" })
+  -- end
 
   api.nvim_create_autocmd("CursorHold", {
     buffer = bufnr,
@@ -124,9 +124,9 @@ local custom_attach = function(client, bufnr)
     local msg = string.format("Language server %s started!", client.name)
     vim.notify(msg, vim.log.levels.DEBUG, { title = "Nvim-config" })
   end
-  
+
   -- Disable hover in ruff
-  if client.name == 'ruff_lsp' then
+  if client.name == "ruff_lsp" then
     -- Disable hover in favor of Pyright
     client.server_capabilities.hoverProvider = false
   end
@@ -140,19 +140,19 @@ return {
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
       local lspconfig = require("lspconfig")
-      lspconfig.tsserver.setup({
-        capabilities = capabilities,
-      })
-      lspconfig.html.setup({
-        capabilities = capabilities,
-      })
-      lspconfig.lua_ls.setup({
-        capabilities = capabilities,
-      })
+      -- lspconfig.tsserver.setup({
+      --   capabilities = capabilities,
+      -- })
+      -- lspconfig.html.setup({
+      --   capabilities = capabilities,
+      -- })
+      -- lspconfig.lua_ls.setup({
+      --   capabilities = capabilities,
+      -- })
 
-    for _, f in pairs(lang.lsp_config) do
+      for _, f in pairs(lang.lsp_config) do
         f(lspconfig, capabilities, custom_attach)
-    end
+      end
 
       vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
       vim.keymap.set("n", "<leader>cd", vim.lsp.buf.definition, { desc = "Go to Definition" })

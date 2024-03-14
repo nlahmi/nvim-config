@@ -4,6 +4,8 @@ local all_langs = {
     require("plugins.lsp.lang.markdown"),
     require("plugins.lsp.lang.java"),
     require("plugins.lsp.lang.clangd"),
+    require("plugins.lsp.lang.yaml"),
+    require("plugins.lsp.lang.json"),
 }
 
 local out = {

@@ -11,7 +11,7 @@ return {
     -- dap_python.default_port = 38000
 
     -- setup dap config by VsCode launch.json file
-    require("dap.ext.vscode").load_launchjs()
+    -- require("dap.ext.vscode").load_launchjs()
 
     local dap = require("dap")
     local dapui = require("dapui")

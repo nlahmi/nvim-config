@@ -16,3 +16,6 @@ vim.o.smartcase = true
 
 -- CursorHold event trigger time
 vim.opt.updatetime=300
+
+-- Something for auto-session
+vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
