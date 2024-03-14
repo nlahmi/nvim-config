@@ -1,3 +1,9 @@
+# General
+
+- [ ] Configure default debug configs like that: https://www.reddit.com/r/neovim/comments/17yzofg/running_and_building_node_application_when/
+- [ ] consider adding a divider between default configs and launch.json https://www.youtube.com/watch?v=Ul_WPhS2bis 8:35
+- [ ] Conf default build configs (such as gradle)
+
 # Fix
 
 - [!] Import errors (venv not detected by LSP) in python - https://github.com/linux-cultist/venv-selector.nvim?tab=readme-ov-file#hooks
@@ -8,8 +14,9 @@
 
 ## Debugging
 
-Note: consider if <leader>dl could also suffice (rerun last config)
-
+- [ ] dl - should saveall, terminate, then do last (or even better, map it to something like F5)
+- [ ] Create the equivalent without debug (for python [-i] at least)
+- [ ] Also consider having dC to start last config (if not in a session already) because it essentially makes you have a breakpoint prior
 - [x] debug current file (no prompts)
 - [x] debug default config (no prompts)
 - [ ] run current file (no prompts)
