@@ -49,7 +49,6 @@ https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.m
 
 ## Must-Have
 
-- [!] Code folding!
 - [x] https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/lang/markdown.lua
 - [ ] https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/lang/docker.lua
 - [x] https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/lang/json.lua
@@ -70,7 +69,7 @@ https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.m
 - [x] https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/lang/clangd.lua
 - [ ] https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/lang/cmake.lua
 - [ ] SQL - https://github.com/tpope/vim-dadbod
-- [ ] C/C++ (is clangd enough?)
+- [x] C/C++ (is clangd enough?)
 - [ ] https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#ansiblels
 - [ ] https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#arduino_language_server
 - [ ] https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#asm_lsp
@@ -86,7 +85,7 @@ https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.m
 - [ ] https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#openscad_lsp
 - [ ] https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#phpactor
 - [ ] Latex - https://github.com/lervag/vimtex?tab=readme-ov-file - https://github.com/circuitikz/circuitikz
-- [ ] OpenAPI/Swagger - https://github.com/daveshanley/vacuum
+- [x] OpenAPI/Swagger - https://github.com/daveshanley/vacuum
       https://github.com/luizcorreia/spectral-language-server
       https://github.com/vinnymeller/swagger-preview.nvim
       https://github.com/shuntaka9576/preview-swagger.nvim
@@ -97,7 +96,7 @@ https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.m
 
 ## Must-Have
 
-- [!] Code folding (like in lazyvim)
+- [x] Code folding (like in lazyvim) - actually, it's already in vim :D
 - [x] https://github.com/chipsenkbeil/distant.nvim
 - [x] https://github.com/voldikss/vim-browser-search
 - [x] https://github.com/tpope/vim-surround - used surround.mini
@@ -106,7 +105,7 @@ https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.m
 - [ ] https://github.com/tpope/vim-sleuth
 - [ ] https://github.com/nvim-neo-tree/neo-tree.nvim
 - [ ] https://github.com/AckslD/swenv.nvim - If existing venv plugin won't work eventually
-- [ ] https://github.com/ahmedkhalf/project.nvim
+- [x] https://github.com/ahmedkhalf/project.nvim
 - [!] https://github.com/andrewferrier/debugprint.nvim
 - [ ] https://github.com/ofirgall/goto-breakpoints.nvim
 - [!] https://github.com/Weissle/persistent-breakpoints.nvim

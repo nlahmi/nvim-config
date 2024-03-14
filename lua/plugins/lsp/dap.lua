@@ -2,52 +2,54 @@ local lang = require("plugins.lsp.lang.all")
 
 ---@param config {args?:string[]|fun():string[]?}
 local function get_args(config)
-    local args = type(config.args) == "function" and (config.args() or {}) or config.args or {}
-    config = vim.deepcopy(config)
-    ---@cast args string[]
-    config.args = function()
-        local new_args = vim.fn.input("Run with args: ", table.concat(args, " ")) --[[@as string]]
-        return vim.split(vim.fn.expand(new_args) --[[@as string]], " ")
-    end
-    return config
+  local args = type(config.args) == "function" and (config.args() or {}) or config.args or {}
+  config = vim.deepcopy(config)
+  ---@cast args string[]
+  config.args = function()
+    local new_args = vim.fn.input("Run with args: ", table.concat(args, " ")) --[[@as string]]
+    return vim.split(vim.fn.expand(new_args) --[[@as string]], " ")
+  end
+  return config
 end
 
 return {
-    "mfussenegger/nvim-dap",
-    dependencies = {
-        -- fancy UI for the debugger
-        { "rcarriga/nvim-dap-ui" },
+  "mfussenegger/nvim-dap",
+  dependencies = {
+    -- fancy UI for the debugger
+    { "rcarriga/nvim-dap-ui" },
 
-        -- virtual text for the debugger
-        { "theHamsta/nvim-dap-virtual-text", opts = {} },
+    -- virtual text for the debugger
+    { "theHamsta/nvim-dap-virtual-text", opts = {} },
 
-        -- mason.nvim integration
-        {
-            "jay-babu/mason-nvim-dap.nvim",
-            dependencies = "mason.nvim",
-            cmd = { "DapInstall", "DapUninstall" },
-            opts = {
-                -- Makes a best effort to setup the various debuggers with
-                -- reasonable debug configurations
-                automatic_installation = true,
+    -- mason.nvim integration
+    {
+      "jay-babu/mason-nvim-dap.nvim",
+      dependencies = "mason.nvim",
+      cmd = { "DapInstall", "DapUninstall" },
+      opts = {
+        -- Makes a best effort to setup the various debuggers with
+        -- reasonable debug configurations
+        automatic_installation = true,
 
-                -- You can provide additional configuration to the handlers,
-                -- see mason-nvim-dap README for more information
-                handlers = {},
+        -- You can provide additional configuration to the handlers,
+        -- see mason-nvim-dap README for more information
+        handlers = {},
 
-                -- You'll need to check that you have the required things installed
-                -- online, please don't ask me how to install them :)
-                ensure_installed = {
-                    -- Update this to ensure that you have the debuggers for the langs you want
-                },
-            },
+        -- You'll need to check that you have the required things installed
+        -- online, please don't ask me how to install them :)
+        ensure_installed = {
+          -- Update this to ensure that you have the debuggers for the langs you want
         },
+      },
     },
+    { "Weissle/persistent-breakpoints.nvim" },
+  },
 
     -- stylua: ignore
     keys = {
-        { "<leader>dB", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = "Breakpoint Condition" },
-        { "<leader>db", function() require("dap").toggle_breakpoint() end,                                    desc = "Toggle Breakpoint" },
+        { "<leader>dR", function() require("persistent-breakpoints.api").clear_all_breakpoints() end,      desc = "Breakpoint Condition" },
+        { "<leader>dB", function() require("persistent-breakpoints.api").set_conditional_breakpoint() end, desc = "Breakpoint Condition" },
+        { "<leader>db", function() require("persistent-breakpoints.api").toggle_breakpoint() end,          desc = "Toggle Breakpoint" },
         {
             "<leader>dc",
             function()
@@ -86,22 +88,22 @@ return {
         { "<leader>dw", function() require("dap.ui.widgets").hover() end,         desc = "Widgets" },
     },
 
-    config = function()
-        local Config = require("utils")
-        vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
+  config = function()
+    local Config = require("utils")
+    vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
 
-        for name, sign in pairs(Config.icons.dap) do
-            sign = type(sign) == "table" and sign or { sign }
-            vim.fn.sign_define(
-                "Dap" .. name,
-                { text = sign[1], texthl = sign[2] or "DiagnosticInfo", linehl = sign[3], numhl = sign[3] }
-            )
-        end
+    for name, sign in pairs(Config.icons.dap) do
+      sign = type(sign) == "table" and sign or { sign }
+      vim.fn.sign_define(
+        "Dap" .. name,
+        { text = sign[1], texthl = sign[2] or "DiagnosticInfo", linehl = sign[3], numhl = sign[3] }
+      )
+    end
 
-        -- Set up lang(s) config functions
-        local dap = require("dap")
-        for _, f in pairs(lang.dap_config) do
-            f(dap)
-        end
-    end,
+    -- Set up lang(s) config functions
+    local dap = require("dap")
+    for _, f in pairs(lang.dap_config) do
+      f(dap)
+    end
+  end,
 }
