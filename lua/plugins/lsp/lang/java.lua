@@ -34,8 +34,10 @@ return {
     {
       "mfussenegger/nvim-jdtls",
       dependencies = { "folke/which-key.nvim" },
-      keys = { { "<leader>ca", vim.lsp.buf.code_action, desc = "LSP Code Action" },
-                { "<leader>rb", "<cmd>!gradle build<cr>", desc = "Build (Gradle)" }, },
+      keys = {
+        -- { "<leader>ca", vim.lsp.buf.code_action, desc = "LSP Code Action" },
+        { "<leader>rg", "<cmd>!gradle build<cr>", desc = "Build (Gradle)" },
+      },
       ft = java_filetypes,
       opts = function()
         return {
