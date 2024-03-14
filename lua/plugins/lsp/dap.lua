@@ -79,13 +79,14 @@ return {
             desc = "Run Last"
         },
         -- { "<leader>dd", function() vim.api.nvim_input("<leader>dl") end,          desc = "Run Last" },
-        { "<leader>do", function() require("dap").step_out() end,                 desc = "Step Out" },
-        { "<leader>dO", function() require("dap").step_over() end,                desc = "Step Over" },
-        { "<leader>dp", function() require("dap").pause() end,                    desc = "Pause" },
-        { "<leader>dr", function() require("dap").repl.toggle(nil, "vsplit") end, desc = "Toggle REPL" },
-        { "<leader>ds", function() require("dap").session() end,                  desc = "Session" },
-        { "<leader>dt", function() require("dap").terminate() end,                desc = "Terminate" },
-        { "<leader>dw", function() require("dap.ui.widgets").hover() end,         desc = "Widgets" },
+        { "<leader>do", function() require("dap").step_out() end,                                                 desc = "Step Out" },
+        { "<leader>dO", function() require("dap").step_over() end,                                                desc = "Step Over" },
+        { "<leader>dp", function() require("dap").pause() end,                                                    desc = "Pause" },
+        { "<leader>dr", function() require("dap").repl.toggle(nil, "vsplit") end,                                 desc = "Toggle REPL" },
+        { "<leader>ds", function() require("dap").session() end,                                                  desc = "Session" },
+        { "<leader>dt", function() require("dap").terminate() end,                                                desc = "Terminate" },
+        { "<leader>dw", function() require("dap.ui.widgets").hover() end,                                         desc = "Widgets" },
+        { "<leader>dv", function() require("dap.ext.vscode").load_launchjs(nil, { cppdbg = { "c", "cpp" } }) end, desc = "Reload .vscode" },
     },
 
   config = function()
