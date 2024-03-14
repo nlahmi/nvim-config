@@ -7,8 +7,8 @@
 # Hotkeys
 ## Debugging
 Note: consider if <leader>dl could also suffice (rerun last config)
-- [ ] debug current file (no prompts)
-- [ ] debug default config (no prompts)
+- [x] debug current file (no prompts)
+- [x] debug default config (no prompts)
 - [ ] run current file (no prompts)
 - [ ] run default config (no prompts)
 all those above will save and kill first the running instance
@@ -16,9 +16,10 @@ all those above will save and kill first the running instance
 - [ ] reconfigure ui
 
 ## Else
+- [ ] :make keymap
 - [ ] ctrl / to comment this line and move down (or comment lines in v mode)
 - [ ] consider moving ga (charactarize), but surely give it a better description
-- [ ] find a way to focus on current debug line (https://github.com/ofirgall/goto-breakpoints.nvim)
+- [x] find a way to focus on current debug line (https://github.com/ofirgall/goto-breakpoints.nvim)
 - [ ] Jump to buffer by number
 - [ ] More session keys
 - [x] git keymaps
