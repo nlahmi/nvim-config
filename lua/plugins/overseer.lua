@@ -3,6 +3,13 @@ return {
   dependencies = { "mfussenegger/nvim-dap", "rmagatti/auto-session" },
   lazy = false,
   opts = {},
+  keys = {
+    -- Todo: consider rethinking these
+    { "<leader>ri", "<cmd>OverseerInfo<cr>", desc = "Show Configs" },
+    { "<leader>rB", "<cmd>OverseerRun<cr>", desc = "Build" },
+    { "<leader>rb", "<cmd>OverseerQuickAction restart<cr>", desc = "Redo Last Build" },
+    { "<leader>rl", "<cmd>OverseerQuickAction restart<cr>", desc = "Redo Last Build" },
+  },
   config = function()
     local overseer = require("overseer")
     overseer.setup()
