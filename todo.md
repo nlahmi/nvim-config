@@ -108,7 +108,7 @@ https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.m
 - [x] https://github.com/ahmedkhalf/project.nvim
 - [!] https://github.com/andrewferrier/debugprint.nvim
 - [ ] https://github.com/ofirgall/goto-breakpoints.nvim
-- [!] https://github.com/Weissle/persistent-breakpoints.nvim
+- [x] https://github.com/Weissle/persistent-breakpoints.nvim
 - [ ] https://github.com/LiadOz/nvim-dap-repl-highlights
 - [ ] https://github.com/hedyhli/outline.nvim
 - [x] https://github.com/nvimdev/template.nvim
