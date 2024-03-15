@@ -79,6 +79,8 @@ https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.m
 - [x] C/C++ (is clangd enough?)
 - [ ] https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#ansiblels
 - [ ] https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#arduino_language_server
+      https://github.com/stevearc/vim-arduino
+      https://stefka.eu/posts/2023/07/platformio+nvim/
 - [ ] https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#asm_lsp
 - [ ] https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#dartls
 - [ ] https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#docker_compose_language_service
@@ -119,6 +121,13 @@ https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.m
 - [ ] https://github.com/LiadOz/nvim-dap-repl-highlights
 - [ ] https://github.com/hedyhli/outline.nvim
 - [x] https://github.com/nvimdev/template.nvim
+- [ ] https://github.com/akinsho/toggleterm.nvim
+- [ ] https://github.com/folke/edgy.nvim
+
+### REPL (python?)
+- https://github.com/milanglacier/yarepl.nvim
+- https://github.com/Vigemus/iron.nvim
+- https://github.com/jpalardy/vim-slime
 
 ## Optional
 
@@ -128,6 +137,9 @@ https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.m
 - [ ] https://github.com/0oAstro/silicon.lua
 - [x] https://github.com/iamcco/markdown-preview.nvim
 - [ ] https://github.com/nvim-pack/nvim-spectre
+- [ ] https://github.com/zbirenbaum/copilot.lua
+- [ ] https://github.com/LintaoAmons/easy-commands.nvim
+- [ ] https://github.com/stevearc/oil.nvim # File manager that you interact with usind vim motions
 
 ### Debugging
 
@@ -143,6 +155,11 @@ https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.m
 - https://github.com/NeogitOrg/neogit
 - https://github.com/neoclide/coc.nvim
 - https://github.com/nvim-telescope/telescope-dap.nvim
+- https://github.com/3rd/image.nvim
+- https://github.com/edluffy/hologram.nvim
+- https://nvimdev.github.io/lspsaga/
+- https://github.com/stevearc/conform.nvim
+- https://github.com/stevearc/aerial.nvim - Already installed outline
 
 ## Themes
 
@@ -175,3 +192,4 @@ Just for reference
 - https://github.com/Dax89/nvim-config/tree/master/lua/plugins
 - https://github.com/jdhao/nvim-config/tree/master
 - https://github.com/ThePrimeagen/neovimrc/blob/master/lua/theprimeagen/lazy/lsp.lua
+- https://github.com/dasupradyumna/.pde
