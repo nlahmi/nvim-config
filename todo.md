@@ -115,7 +115,7 @@ https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.m
 - [ ] https://github.com/nvim-neo-tree/neo-tree.nvim
 - [ ] https://github.com/AckslD/swenv.nvim - If existing venv plugin won't work eventually
 - [x] https://github.com/ahmedkhalf/project.nvim
-- [!] https://github.com/andrewferrier/debugprint.nvim
+- [x] https://github.com/andrewferrier/debugprint.nvim
 - [ ] https://github.com/ofirgall/goto-breakpoints.nvim
 - [x] https://github.com/Weissle/persistent-breakpoints.nvim
 - [ ] https://github.com/LiadOz/nvim-dap-repl-highlights
