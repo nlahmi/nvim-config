@@ -111,7 +111,7 @@ https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.m
 - [x] https://github.com/tpope/vim-surround - used surround.mini
 - [x] https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-bufremove.md
 - [x] https://github.com/Dax89/automaton.nvim - Used Compiler.nvim instead
-- [ ] https://github.com/tpope/vim-sleuth
+- [x] https://github.com/tpope/vim-sleuth - used guess-indent
 - [ ] https://github.com/nvim-neo-tree/neo-tree.nvim
 - [ ] https://github.com/AckslD/swenv.nvim - If existing venv plugin won't work eventually
 - [x] https://github.com/ahmedkhalf/project.nvim
