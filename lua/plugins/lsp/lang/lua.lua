@@ -1,5 +1,8 @@
 return {
-    packages = {},
+    packages = {
+        { "folke/neodev.nvim", opts = {} },
+    },
+
     mason_packages = {
         "lua-language-server",
         "stylua",
@@ -9,7 +12,7 @@ return {
 
     lsp_config = {
         function(lspconfig, capabilities, custom_attach)
-            lspconfig.lua_ls.setup {
+            lspconfig.lua_ls.setup({
                 on_attach = custom_attach,
                 settings = {
                     Lua = {
@@ -35,7 +38,7 @@ return {
                     },
                 },
                 capabilities = capabilities,
-            }
-        end
+            })
+        end,
     },
 }
