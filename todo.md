@@ -6,7 +6,7 @@
 
 # Fix
 
-- [!] Import errors (venv not detected by LSP) in python - https://github.com/linux-cultist/venv-selector.nvim?tab=readme-ov-file#hooks
+- [x] Import errors (venv not detected by LSP) in python - https://github.com/linux-cultist/venv-selector.nvim?tab=readme-ov-file#hooks
 - [ ] Not super urgent: Give desc to automatic keymaps (fuzzy search <Plug>)
 - [ ] Java DAP not working and some lsp keybinds dont work in Java
 
