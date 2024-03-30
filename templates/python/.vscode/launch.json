@@ -6,8 +6,10 @@
             "type": "debugpy",
             "request": "launch",
             "program": "main.py",
-            "console": "internalConsole",
-            "python": "venv/Scripts/pythonw"
+            "python": "venv/Scripts/pythonw",
+            "console": "integratedTerminal",
+            "redirectOutput": true,
+            "envFile": ".env"
         }
     ]
 }
