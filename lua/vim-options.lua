@@ -22,3 +22,8 @@ vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,te
 
 -- Terminal True Colors
 vim.opt.termguicolors = true
+
+-- Auto Folding Detection
+vim.opt.foldmethod = "indent"
+vim.foldenable = false
+vim.opt.foldlevel = 99
