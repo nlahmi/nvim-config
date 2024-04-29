@@ -1,12 +1,13 @@
 #$chosen_font = "LiterationMono Nerd Font"
-$chosen_font = "Hack Nerd Font Mono"
+# $chosen_font = "Hack Nerd Font Mono"
+$chosen_font = "Hack Nerd Font Mono JBM Ligatured CCG"
 
 # Install Chocolatey
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 
 # Install Nerd Font(s)
 $fonts = (New-Object -ComObject Shell.Application).Namespace(0x14)
-Get-ChildItem -Recurse -include *.ttf | % { $fonts.CopyHere($_.fullname) }
+Get-ChildItem -Exclude _* fonts | Get-ChildItem -Recurse | ? {$_.fullname -match "ttf" } | % { $fonts.CopyHere($_.fullname) }
 
 # Set it as option in legacy CMD
 New-ItemProperty -LiteralPath "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Console\TrueTypeFont" -name 7778 -PropertyType String -Value $chosen_font
