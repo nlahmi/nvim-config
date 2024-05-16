@@ -51,7 +51,6 @@ return {
           console = "integratedTerminal",
           redirectOutput = true,
           -- args = { "-i", "\n", "exit", "0"},
-          -- python = "D:/Code/Python/Plugins/VideoDownloader/venv/Scripts/pythonw.exe",
           -- python = "pythonw",
           -- python = python2pythonw(require("venv-selector").get_active_path()),
           -- python = require("dap-python").resolve_python,
