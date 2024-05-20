@@ -1,15 +1,13 @@
-# 💤 LazyVim
-
-A starter template for [LazyVim](https://github.com/LazyVim/LazyVim).
-Refer to the [documentation](https://lazyvim.github.io/installation) to get started.
-
-# Installation
-## Nerd Font
-https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/LiberationMono.zip
-Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Console\TrueTypeFont  "LiterationMono Nerd Font"
-
-## Prerequisites
-choco install lazygit mingw ripgrep fd git neovim -y
-
-## Install
+## Windows Install (Powershell)
+```
 git clone https://github.com/nlahmi/nvim-config $env:LOCALAPPDATA\nvim
+$env:LOCALAPPDATA\nvim\setup.ps1
+```
+
+## Linux Install (Debian)
+```
+sh -c "$(curl -fsLS https://raw.githubusercontent.com/nlahmi/nvim-config/main/setup-debian.sh)"
+
+# git clone https://github.com/nlahmi/nvim-config ~/.config/nvim
+# sh ~/.config/nvim/setup-debian.sh
+```
