@@ -1,7 +1,9 @@
 #!/bin/bash
 
+git clone https://github.com/nlahmi/nvim-config ~/.config/nvim
+
 # Install Fonts
-find fonts -type f -name "*.ttf" -exec cp "{}" ~/.local/share/fonts \;  # Consider changing to a simple recursive copy
+find ~/.config/nvim/fonts -type f -name "*.ttf" -exec cp "{}" ~/.local/share/fonts \;  # Consider changing to a simple recursive copy
 fc-cache -f -v
 
 # Install wezterm
@@ -16,8 +18,6 @@ curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 chmod 755 nvim.appimage
 sudo chown root:root nvim.appimage
 sudo mv nvim.appimage /usr/local/bin/nvim
-
-git clone https://github.com/nlahmi/nvim-config ~/.config/nvim
 
 
 
