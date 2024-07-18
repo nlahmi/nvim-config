@@ -1,7 +1,9 @@
 ## Windows Install (Powershell)
+Make sure to run as admin
 ```
 git clone https://github.com/nlahmi/nvim-config $env:LOCALAPPDATA\nvim
-$env:LOCALAPPDATA\nvim\setup.ps1
+cd $env:LOCALAPPDATA\nvim
+.\setup.ps1
 ```
 
 ## Linux Install (Debian)
