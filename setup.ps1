@@ -36,7 +36,7 @@ if (Test-Path $p) {
 # TODO: Install gruvbox theme (for terminal and maybe others)
 
 # Install deps
-choco install wezterm lazygit mingw ripgrep fd git neovim neovide python311 nodejs -y
+choco install wezterm lazygit mingw ripgrep fd git neovim python311 nodejs jq sudo -y
 
 # Install lazy-nvim
 git clone https://github.com/nlahmi/nvim-config $env:LOCALAPPDATA\nvim
