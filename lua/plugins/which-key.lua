@@ -3,14 +3,14 @@ return {
     event = "VeryLazy",
     opts = {
         plugins = { spelling = true },
-        defaults = {
-            -- mode = { "n", "v" },
-        }
+        -- defaults = {
+        --     -- mode = { "n", "v" },
+        -- }
     },
     config = function(_, opts)
         local wk = require("which-key")
         wk.setup(opts)
-        wk.register(opts.defaults)
+        -- wk.register(opts.defaults)
 
         wk.add({
             { "g", desc = "+goto" },
