@@ -14,15 +14,15 @@
 
 ## Debugging
 
-- [ ] dl - should saveall, terminate, then do last (or even better, map it to something like F5)
-- [ ] Create the equivalent without debug (for python [-i] at least)
+- [x] dl - should saveall, terminate, then do last (or even better, map it to something like F5)
+- [x] Create the equivalent without debug (for python [-i] at least)
 - [ ] Also consider having dC to start last config (if not in a session already) because it essentially makes you have a breakpoint prior
 - [x] debug current file (no prompts)
 - [x] debug default config (no prompts)
 - [ ] run current file (no prompts)
 - [ ] run default config (no prompts)
       all those above will save and kill first the running instance
-- [ ] ctrl space to `CTRL-X CTRL-O` (I think it's already implemented, but not in the debug console: https://github.com/mfussenegger/nvim-dap/blob/master/doc/dap.txt # auto complete) - also https://github.com/rcarriga/cmp-dap
+- [x] ctrl space to `CTRL-X CTRL-O` (I think it's already implemented, but not in the debug console: https://github.com/mfussenegger/nvim-dap/blob/master/doc/dap.txt # auto complete) - also https://github.com/rcarriga/cmp-dap
 - [ ] reconfigure ui
 
 ## Else
