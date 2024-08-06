@@ -3,7 +3,9 @@
 git clone https://github.com/nlahmi/nvim-config ~/.config/nvim
 
 # Install Fonts
-find ~/.config/nvim/fonts -type f -name "*.ttf" -exec cp "{}" ~/.local/share/fonts \;  # Consider changing to a simple recursive copy
+mkdir ~/.local/share/fonts
+# Consider changing to a simple recursive copy
+find ~/.config/nvim/fonts -type f -name "*.ttf" -exec cp "{}" ~/.local/share/fonts/ \;
 fc-cache -f -v
 
 # Install wezterm
