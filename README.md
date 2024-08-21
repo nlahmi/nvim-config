@@ -9,7 +9,4 @@ cd $env:LOCALAPPDATA\nvim
 ## Linux Install (Debian)
 ```
 sh -c "$(curl -fsLS https://raw.githubusercontent.com/nlahmi/nvim-config/main/setup-debian.sh)"
-
-# git clone https://github.com/nlahmi/nvim-config ~/.config/nvim
-# sh ~/.config/nvim/setup-debian.sh
 ```
