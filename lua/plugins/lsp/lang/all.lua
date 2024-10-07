@@ -7,6 +7,7 @@ local all_langs = {
     require("plugins.lsp.lang.yaml"),
     require("plugins.lsp.lang.json"),
     require("plugins.lsp.lang.spellcheck"),
+    require("plugins.lsp.lang.javascript"),
 }
 
 local out = {
