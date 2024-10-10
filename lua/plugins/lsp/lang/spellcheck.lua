@@ -18,7 +18,7 @@ return {
               -- an_a = true,
               -- sentence_capitalization = true,
               -- unclosed_quotes = true,
-              wrong_quotes = true,
+              -- wrong_quotes = true,
               -- long_sentences = true,
               -- repeated_words = true,
               -- spaces = true,

@@ -1,18 +1,18 @@
 return {
-    packages = {},
+  packages = {},
 
-    mason_packages = {
-        "vtsls",
-    },
+  mason_packages = {
+    "vtsls",
+  },
 
-    nonls_packages = {
-        function(lspconfig, capabilities, custom_attach)
-            lspconfig.vtsls.setup({
-                capabilities = capabilities,
-                on_attach = custom_attach,
-            })
-        end,
-    },
+  nonls_packages = {},
 
-    lsp_config = {},
+  lsp_config = {
+    function(lspconfig, capabilities, custom_attach)
+      lspconfig.vtsls.setup({
+        capabilities = capabilities,
+        on_attach = custom_attach,
+      })
+    end,
+  },
 }
