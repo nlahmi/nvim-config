@@ -8,6 +8,7 @@ local all_langs = {
     require("plugins.lsp.lang.json"),
     require("plugins.lsp.lang.spellcheck"),
     require("plugins.lsp.lang.javascript"),
+    require("plugins.lsp.lang.ansible"),
 }
 
 local out = {
