@@ -13,7 +13,7 @@ fc-cache -f -v
 #echo 'deb [signed-by=/usr/share/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *' | sudo tee /etc/apt/sources.list.d/wezterm.list
 
 sudo apt update
-sudo apt install ripgrep fd-find git python3 python3-venv python3-pip npm -y 
+sudo apt install ripgrep fd-find git python3 python3-venv python3-pip npm xclip -y 
  # sudo apt install wezterm -y
 
 # Install from appimage since apt is always outdated
