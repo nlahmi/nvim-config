@@ -8,7 +8,8 @@ return {
     },
   },
   keys = {
-    -- { "<leader>xt", "<cmd>TodoTelescope<cr>", desc = "Todo Telescope" },
-    { "<C-t>",      "<cmd>TodoTelescope<cr>", desc = "Todo Telescope" },
+    { "<C-t>", "<cmd>TodoTelescope<cr>", desc = "Todo Telescope" },
+    { "<leader>xt", "<cmd>TodoTelescope<cr>", desc = "Todo Telescope" },
+    { "<leader>xm", "<cmd>TodoTelescope keywords=MARK,BM,BOOKMARK<cr>", desc = "Todo Telescope" },
   },
 }
