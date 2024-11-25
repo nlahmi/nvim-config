@@ -76,11 +76,18 @@ vim.keymap.set("n", "<leader>pl", "<cmd>Lazy<cr>", { desc = "Lazy" })
 -- new file
 vim.keymap.set("n", "<leader>fn","<cmd>enew<cr>", { desc = "New File" })
 
+-- Location / Quickfix
 vim.keymap.set("n", "<leader>xl", "<cmd>lopen<cr>", { desc = "Location List" })
 vim.keymap.set("n", "<leader>xq", "<cmd>copen<cr>", { desc = "Quickfix List" })
-
 vim.keymap.set("n", "[q", vim.cmd.cprev, { desc = "Previous quickfix" })
 vim.keymap.set("n", "]q", vim.cmd.cnext, { desc = "Next quickfix" })
+
+-- Marks
+-- stylua: ignore start
+vim.keymap.set("n", "<leader>ma", function () vim.cmd.mark(vim.fn.getcharstr()) end, { desc = "Mark this line" })
+vim.keymap.set("n", "<leader>md", function () vim.cmd.delm(vim.fn.getcharstr()) end, { desc = "Delete a Mark" })
+vim.keymap.set("n", "<leader>mm", "<cmd>Telescope marks<cr>", { desc = "Telescope Marks" })
+-- stylua: ignore end
 
 -- formatting
 --vim.keymap.set({ "n", "v" }, "<leader>cf", function()
