@@ -25,7 +25,7 @@ return {
             { "<leader>f", desc = "+file/find" },
             { "<leader>g", desc = "+git" },
             { "<leader>gh", desc = "+hunks" },
-            { "<leader>m", desc = "+marks" },
+            -- { "<leader>m", desc = "+marks" },
             { "<leader>p", desc = "+plugins" },
             { "<leader>pn", desc = "+noice" },
             { "<leader>q", desc = "+quit/session" },

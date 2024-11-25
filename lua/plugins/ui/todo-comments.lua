@@ -4,10 +4,11 @@ return {
   dependencies = { "nvim-lua/plenary.nvim" },
   opts = {
     keywords = {
-      MARK = { icon = " ", color = "warning", alt = { "BOOKMARK", "BM" } },
+      MARK = { icon = " ", color = "warning", alt = { "BOOKMARK", "BM" } },
     },
   },
   keys = {
-    { "<leader>xt", "<cmd>TodoTelescope<cr>", desc = "Todo Telescope" },
+    -- { "<leader>xt", "<cmd>TodoTelescope<cr>", desc = "Todo Telescope" },
+    { "<C-t>",      "<cmd>TodoTelescope<cr>", desc = "Todo Telescope" },
   },
 }

@@ -74,25 +74,28 @@ vim.keymap.set("v", ">", ">gv")
 vim.keymap.set("n", "<leader>pl", "<cmd>Lazy<cr>", { desc = "Lazy" })
 
 -- new file
-vim.keymap.set("n", "<leader>fn","<cmd>enew<cr>", { desc = "New File" })
+vim.keymap.set("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
 
--- Location / Quickfix
+-- Location / Quickfixnvim
 vim.keymap.set("n", "<leader>xl", "<cmd>lopen<cr>", { desc = "Location List" })
 vim.keymap.set("n", "<leader>xq", "<cmd>copen<cr>", { desc = "Quickfix List" })
 vim.keymap.set("n", "[q", vim.cmd.cprev, { desc = "Previous quickfix" })
 vim.keymap.set("n", "]q", vim.cmd.cnext, { desc = "Next quickfix" })
 
--- Marks
 -- TODO: https://github.com/LintaoAmons/bookmarks.nvim
--- stylua: ignore start
-vim.keymap.set("n", "<leader>ma", function () vim.cmd.mark(vim.fn.getcharstr()) end, { desc = "Mark this line" })
-vim.keymap.set("n", "<leader>md", function () vim.cmd.delm(vim.fn.getcharstr()) end, { desc = "Delete a Mark" })
-vim.keymap.set("n", "<leader>mm", "<cmd>Telescope marks<cr>", { desc = "Telescope Marks" })
--- stylua: ignore end
+
+-- Marks
+-- stylua: ignore
+vim.keymap.set("n", "M", function() vim.cmd.delm(vim.fn.getcharstr()) end, { desc = "Delete a Mark" })
+vim.keymap.set("n", "<C-M>", "<cmd>Telescope marks<cr>", { desc = "Telescope Marks" })
+
+-- vim.keymap.set("n", "<leader>ma", function () vim.cmd.mark(vim.fn.getcharstr()) end, { desc = "Mark this line" })
+-- vim.keymap.set("n", "<leader>md", function () vim.cmd.delm(vim.fn.getcharstr()) end, { desc = "Delete a Mark" })
+-- vim.keymap.set("n", "<leader>mm", "<cmd>Telescope marks<cr>", { desc = "Telescope Marks" })
 
 -- formatting
 --vim.keymap.set({ "n", "v" }, "<leader>cf", function()
-  --Util.format({ force = true })
+--Util.format({ force = true })
 --end, { desc = "Format" })
 
 -- diagnostic
@@ -124,7 +127,7 @@ vim.keymap.set("n", "[w", diagnostic_goto(false, "WARN"), { desc = "Prev Warning
 -- local conceallevel = vim.o.conceallevel > 0 and vim.o.conceallevel or 3
 --vim.keymap.set("n", "<leader>uc", function() Util.toggle("conceallevel", false, {0, conceallevel}) end, { desc = "Toggle Conceal" })
 --if vim.lsp.buf.inlay_hint or vim.lsp.inlay_hint then
-  --vim.keymap.set( "n", "<leader>uh", function() Util.toggle.inlay_hints() end, { desc = "Toggle Inlay Hints" })
+--vim.keymap.set( "n", "<leader>uh", function() Util.toggle.inlay_hints() end, { desc = "Toggle Inlay Hints" })
 --end
 --vim.keymap.set("n", "<leader>uT", function() if vim.b.ts_highlight then vim.treesitter.stop() else vim.treesitter.start() end end, { desc = "Toggle Treesitter Highlight" })
 --vim.keymap.set("n", "<leader>ub", function() Util.toggle("background", false, {"light", "dark"}) end, { desc = "Toggle Background" })
@@ -187,11 +190,11 @@ vim.keymap.set("n", "<leader>fp", "<cmd>lcd%:p:h<cr>", { desc = "PWD to Current 
 -- if vim.g.neovide then
 -- end
 -- vim.keymap.set('n', '<C-s>', ':w<CR>') -- Save
-vim.keymap.set('v', '<C-c>', '"+y') -- Copy
-vim.keymap.set('n', '<C-v>', '"+p') -- Paste normal mode
-vim.keymap.set('v', '<C-v>', '"+p') -- Paste visual mode
+vim.keymap.set('v', '<C-c>', '"+y')         -- Copy
+vim.keymap.set('n', '<C-v>', '"+p')         -- Paste normal mode
+vim.keymap.set('v', '<C-v>', '"+p')         -- Paste visual mode
 -- vim.keymap.set('i', '<C-v>', '"+p') -- Paste insert mode
-vim.keymap.set('c', '<C-v>', '<C-R>+') -- Paste command mode
+vim.keymap.set('c', '<C-v>', '<C-R>+')      -- Paste command mode
 vim.keymap.set('i', '<C-v>', '<ESC>l"+Pli') -- Paste insert mode
 -- Allow clipboard copy paste in neovim
 --vim.api.nvim_set_keymap('', '<C-v>', '+p<CR>', { noremap = true, silent = true})

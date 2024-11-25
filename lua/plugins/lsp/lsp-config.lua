@@ -44,7 +44,7 @@ local custom_attach = function(client, bufnr)
   -- this puts diagnostics from current buffer to quickfix
   map("n", "<leader>xb", function()
     set_qflist(bufnr)
-  end, { desc = "put buffer diagnostics to qf" })
+  end, { desc = "Put buffer diagnostics to qf" })
 
   map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP code action" })
   map("n", "<leader>cwa", vim.lsp.buf.add_workspace_folder, { desc = "Add Workspace Folder" })
