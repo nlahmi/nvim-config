@@ -83,6 +83,7 @@ vim.keymap.set("n", "[q", vim.cmd.cprev, { desc = "Previous quickfix" })
 vim.keymap.set("n", "]q", vim.cmd.cnext, { desc = "Next quickfix" })
 
 -- Marks
+-- TODO: https://github.com/LintaoAmons/bookmarks.nvim
 -- stylua: ignore start
 vim.keymap.set("n", "<leader>ma", function () vim.cmd.mark(vim.fn.getcharstr()) end, { desc = "Mark this line" })
 vim.keymap.set("n", "<leader>md", function () vim.cmd.delm(vim.fn.getcharstr()) end, { desc = "Delete a Mark" })

@@ -8,6 +8,7 @@ end
 
 return {
   "tpope/vim-fugitive",
+  lazy = false,
   keys = {
     { "<leader>ga", "<cmd>Git add *<cr>", desc = "Add *" },
     { "<leader>gb", "<cmd>GBrowse<cr>", desc = "Browse" },
