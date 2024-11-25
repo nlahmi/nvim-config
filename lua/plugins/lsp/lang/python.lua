@@ -154,6 +154,22 @@ return {
 
   lsp_config = {
     function(lspconfig, capabilities, custom_attach)
+      -- Install pip packages to mason venv
+      local mason_registry = require("mason-registry")
+      if mason_registry.is_installed("python-lsp-server") then
+        local pylsp_pip_path = mason_registry.get_package("python-lsp-server"):get_install_path() .. "/venv/bin/pip"
+        local on_exit = function(obj)
+          if obj.code ~= 0 then
+            print("code: " .. obj.code)
+            print("signal: " .. obj.signal)
+            print("stdout: " .. obj.stdout)
+            print("stderr: " .. obj.stderr)
+          end
+        end
+        -- Runs asynchronously:
+        vim.system({ pylsp_pip_path, "install", "pylsp-rope" }, { text = true }, on_exit)
+      end
+
       --lspconfig.pyright.setup({
       --   on_attach = custom_attach,
       --    capabilities = capabilities,
@@ -172,7 +188,7 @@ return {
           pylsp = {
             plugins = {
               -- formatter options
-              black = { enabled = true },  -- Works when disabled
+              black = { enabled = false }, -- Doesn't work
               autopep8 = { enabled = false },
               yapf = { enabled = false },
               -- linter options
@@ -181,22 +197,21 @@ return {
               pyflakes = { enabled = false },
               pycodestyle = { enabled = false },
               -- type checker
-              pylsp_mypy = {  -- Untested
+              pylsp_mypy = {
                 enabled = true,
-                --overrides = { "--python-executable", py_path, true },
-                report_progress = false,
+                report_progress = true,
                 live_mode = true,
               },
               -- auto-completion options
-              jedi_completion = { fuzzy = true },  -- Tested working
-              -- jedi_rename = { enabled = false },
+              jedi_completion = { enabled = true, fuzzy = true },
+              jedi_rename = { enabled = true },
               -- import sorting
-              isort = { enabled = true },  -- Works when disabled
-              rope_autoimport = { enabled = true },  -- Doesn't work
-              pylsp_rope = { enabled = true },  -- Doesn't work
-              -- rope_completion = {
-              --   enabled = true
-              -- }
+              isort = { enabled = false }, -- Works when disabled
+              pylsp_rope = { enabled = true },
+              rope_autoimport = { enabled = true },
+              rope_completion = {
+                enabled = false,
+              },
               -- pydocstyle = { enabled = true },
             },
           },

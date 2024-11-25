@@ -149,7 +149,7 @@ return {
         f(lspconfig, capabilities, custom_attach)
       end
 
-      vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
+      -- vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
       -- vim.keymap.set("n", "<leader>cd", vim.lsp.buf.definition, { desc = "Go to Definition" })
       -- vim.keymap.set("n", "<leader>cr", vim.lsp.buf.references, { desc = "Go to References" })
       -- vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
