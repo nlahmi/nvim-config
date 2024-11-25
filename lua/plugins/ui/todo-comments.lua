@@ -11,6 +11,6 @@ return {
     { "<C-t>", "<cmd>TodoTelescope<cr>", desc = "Todo Telescope" },
     { "<leader>xt", "<cmd>TodoTelescope<cr>", desc = "Todo Telescope" },
     { "<leader>xm", "<cmd>TodoTelescope keywords=MARK,BM,BOOKMARK<cr>", desc = "Todo Telescope" },
-    { "<leader>xM", function() require("Comment.api").insert.linewise.above(); vim.api.nvim_feedkeys("MARK: ", "", false) end, desc = "Todo Telescope" },
+    { "<leader>xM", function() require("Comment.api").insert.linewise.above(); vim.api.nvim_feedkeys("MARK: ", "", false) end, desc = "Insert Mark above" },
   },
 }
