@@ -36,8 +36,22 @@ return {
       -- stylua: ignore
       ft = { "py" },
       keys = {
-        { "<leader>dPt", function() require('dap-python').test_method() end, desc = "Debug Method", ft = "python" },
-        { "<leader>dPc", function() require('dap-python').test_class() end,  desc = "Debug Class",  ft = "python" },
+        {
+          "<leader>dPt",
+          function()
+            require("dap-python").test_method()
+          end,
+          desc = "Debug Method",
+          ft = "python",
+        },
+        {
+          "<leader>dPc",
+          function()
+            require("dap-python").test_class()
+          end,
+          desc = "Debug Class",
+          ft = "python",
+        },
       },
       config = function()
         require("dap-python").setup(getDebugPywPath())
@@ -132,7 +146,7 @@ return {
     "pylint",
     "mypy",
     "isort",
-    "ruff-lsp",
+    "ruff",
   },
   nonls_packages = {
     --require("null-ls").builtins.formatiing.blahh,
@@ -145,17 +159,20 @@ return {
       --    capabilities = capabilities,
       --})
 
-      lspconfig.ruff_lsp.setup({
+      -- Separate from pylsp since for some reason it doesn't work with code actions
+      lspconfig.ruff.setup({
         on_attach = custom_attach,
+        capabilities = capabilities,
       })
 
       lspconfig.pylsp.setup({
         on_attach = custom_attach,
         settings = {
+          configurationSources = { "pycodestyle", "flake8" },
           pylsp = {
             plugins = {
               -- formatter options
-              black = { enabled = true },
+              black = { enabled = true },  -- Works when disabled
               autopep8 = { enabled = false },
               yapf = { enabled = false },
               -- linter options
@@ -164,16 +181,23 @@ return {
               pyflakes = { enabled = false },
               pycodestyle = { enabled = false },
               -- type checker
-              pylsp_mypy = {
+              pylsp_mypy = {  -- Untested
                 enabled = true,
                 --overrides = { "--python-executable", py_path, true },
-                report_progress = true,
-                live_mode = false,
+                report_progress = false,
+                live_mode = true,
               },
               -- auto-completion options
-              jedi_completion = { fuzzy = true },
+              jedi_completion = { fuzzy = true },  -- Tested working
+              -- jedi_rename = { enabled = false },
               -- import sorting
-              isort = { enabled = true },
+              isort = { enabled = true },  -- Works when disabled
+              rope_autoimport = { enabled = true },  -- Doesn't work
+              pylsp_rope = { enabled = true },  -- Doesn't work
+              -- rope_completion = {
+              --   enabled = true
+              -- }
+              -- pydocstyle = { enabled = true },
             },
           },
         },

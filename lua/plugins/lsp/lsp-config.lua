@@ -50,13 +50,7 @@ local custom_attach = function(client, bufnr)
   map("n", "<leader>cwa", vim.lsp.buf.add_workspace_folder, { desc = "Add Workspace Folder" })
   map("n", "<leader>cwr", vim.lsp.buf.remove_workspace_folder, { desc = "Remove Workspace Folder" })
   map("n", "<leader>co", function()
-    vim.lsp.buf.code_action({
-      apply = true,
-      context = {
-        only = { "source.organizeImports" },
-        diagnostics = {},
-      },
-    })
+    vim.lsp.buf.code_action({ apply = true, context = { only = { "source.organizeImports" }, diagnostics = {} } })
   end, { desc = "Organize Imports" })
   map("n", "<leader>cwl", function()
     vim.inspect(vim.lsp.buf.list_workspace_folders())
@@ -126,7 +120,7 @@ local custom_attach = function(client, bufnr)
   end
 
   -- Disable hover in ruff
-  if client.name == "ruff_lsp" then
+  if client.name == "ruff" then
     -- Disable hover in favor of Pyright
     client.server_capabilities.hoverProvider = false
   end
@@ -137,6 +131,7 @@ return {
     "neovim/nvim-lspconfig",
     lazy = false,
     config = function()
+      -- Allow LSPs to use nvim-cmp's completion engine instead of nvim's
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
       local lspconfig = require("lspconfig")

@@ -86,9 +86,10 @@ vim.keymap.set("n", "]q", vim.cmd.cnext, { desc = "Next quickfix" })
 
 -- Marks
 -- stylua: ignore
-vim.keymap.set("n", "M", function() vim.cmd.delm(vim.fn.getcharstr()) end, { desc = "Delete a Mark" })
-vim.keymap.set("n", "<C-M>", "<cmd>Telescope marks<cr>", { desc = "Telescope Marks" })
+-- vim.keymap.set("n", "M", function() vim.cmd.delm(vim.fn.getcharstr()) end, { desc = "Delete a Mark" })
+vim.keymap.set("n", "M", "<cmd>Telescope marks<cr>", { desc = "Telescope Marks" })
 
+-- vim.keymap.set("n", "<C-m>", "<cmd>Telescope marks<cr>", { desc = "Telescope Marks" })
 -- vim.keymap.set("n", "<leader>ma", function () vim.cmd.mark(vim.fn.getcharstr()) end, { desc = "Mark this line" })
 -- vim.keymap.set("n", "<leader>md", function () vim.cmd.delm(vim.fn.getcharstr()) end, { desc = "Delete a Mark" })
 -- vim.keymap.set("n", "<leader>mm", "<cmd>Telescope marks<cr>", { desc = "Telescope Marks" })
