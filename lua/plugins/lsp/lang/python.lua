@@ -93,6 +93,7 @@ return {
         venv_selector.setup({
           dap_enabled = true,
           name = { "venv", ".venv" },
+          stay_on_this_version = true,
           changed_venv_hooks = {
             -- Pyright
             venv_selector.hooks.pyright,
