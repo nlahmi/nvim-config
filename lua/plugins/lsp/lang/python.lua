@@ -208,8 +208,8 @@ return {
               jedi_rename = { enabled = true },
               -- import sorting
               isort = { enabled = false }, -- Works when disabled
-              pylsp_rope = { enabled = true },
-              rope_autoimport = { enabled = true },
+              pylsp_rope = { enabled = false },
+              rope_autoimport = { enabled = false },
               rope_completion = {
                 enabled = false,
               },
