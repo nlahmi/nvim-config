@@ -216,6 +216,33 @@ return {
 
   dap_config = {
     function(dap)
+
+      -- Find the correct python path (venv or global)
+      local function get_py_exe(venv_path)
+        if venv_path == nil then
+          venv_path = os.getenv("VIRTUAL_ENV")
+        end
+        if venv_path == nil then
+          venv_path = ""
+        end
+
+        local options = {
+          venv_path .. "/bin/python",
+          venv_path .. "/Scripts/pythonw",
+          "python",
+          "python3",
+        }
+
+        for _, x in pairs(options) do
+          if vim.fn.executable(x) == 1 then
+            return x
+          end
+        end
+      end
+
+      local py_path = get_py_exe()
+
+      -- Insert our default configs
       table.insert(dap.configurations.python, 1, {
         type = "python",
         request = "launch",
@@ -224,6 +251,7 @@ return {
         -- console = "internalConsole",
         console = "integratedTerminal",
         redirectOutput = true,
+        pythonPath = py_path,
         -- args = { "-i", "\n", "exit", "0"},
         -- python = "pythonw",
         -- python = python2pythonw(require("venv-selector").get_active_path()),
@@ -237,8 +265,10 @@ return {
         program = "main.py",
         console = "integratedTerminal",
         redirectOutput = true,
+        pythonPath = py_path,
       })
     end,
+
     -- function(dap)
     --     dap.adapters.python = function(cb, config)
     --         if config.request == "attach" then
