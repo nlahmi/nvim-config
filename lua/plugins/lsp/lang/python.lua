@@ -14,128 +14,113 @@ end
 
 return {
   packages = {
-    {
-      "nvim-neotest/neotest",
-      optional = true,
-      dependencies = {
-        "nvim-neotest/neotest-python",
-      },
-      opts = {
-        adapters = {
-          ["neotest-python"] = {
-            -- Here you can specify the settings for the adapter, i.e.
-            -- runner = "pytest",
-            -- python = ".venv/bin/python",
-          },
-        },
-      },
-    },
-    {
-      "mfussenegger/nvim-dap-python",
-      -- dependencies = { "linux-cultist/venv-selector.nvim" },
-      -- stylua: ignore
-      ft = { "py" },
-      keys = {
-        {
-          "<leader>dPt",
-          function()
-            require("dap-python").test_method()
-          end,
-          desc = "Debug Method",
-          ft = "python",
-        },
-        {
-          "<leader>dPc",
-          function()
-            require("dap-python").test_class()
-          end,
-          desc = "Debug Class",
-          ft = "python",
-        },
-      },
-      config = function()
-        require("dap-python").setup(getDebugPywPath())
-
-        table.insert(require("dap").configurations.python, {
-          type = "python",
-          request = "launch",
-          name = "Launch Python Interactively",
-          program = "${file}",
-          -- console = "internalConsole",
-          console = "integratedTerminal",
-          redirectOutput = true,
-          -- args = { "-i", "\n", "exit", "0"},
-          -- python = "pythonw",
-          -- python = python2pythonw(require("venv-selector").get_active_path()),
-          -- python = require("dap-python").resolve_python,
-          -- ... more options, see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings
-        })
-      end,
-    },
-    {
-      "linux-cultist/venv-selector.nvim",
-      cmd = "VenvSelect",
-      -- opts = function(_, opts)
-      --     opts.dap_enabled = true
-      --     return vim.tbl_deep_extend("force", opts, {
-      --         name = {
-      --             "venv",
-      --             ".venv",
-      --             "env",
-      --             ".env",
-      --         },
-      --     })
-      -- end,
-
-      config = function()
-        local venv_selector = require("venv-selector")
-
-        venv_selector.setup({
-          dap_enabled = true,
-          name = { "venv", ".venv" },
-          stay_on_this_version = true,
-          changed_venv_hooks = {
-            -- Pyright
-            venv_selector.hooks.pyright,
-
-            -- Ruff
-            function(venv_path, venv_python) end,
-
-            -- dap-python
-            function(venv_path, venv_python)
-              require("dap-python").resolve_python = function()
-                -- nvimide.log("YAY!!")
-                return require("venv-selector").get_active_path()
-                -- return venv_path
-              end
-            end,
-            -- function(venv_path, venv_pyton)
-            --   nvimide.log("entered vs")
-            --   require("dap-python").resolve_python = function()
-            --     nvimide.log("entered dp")
-            --
-            --     return string.reverse(
-            --       string.gsub(
-            --         string.reverse(require("venv-selector").get_active_path()),
-            --         "nohty",
-            --         "wnohty",
-            --         1
-            --       )
-            --     )
-            --
-            --     -- return python2pythonw()
-            --   end
-            -- end,
-
-            -- TODO: pylint
-          },
-        })
-      end,
-      keys = {
-        { "<leader>cv", "<cmd>:VenvSelect<cr>", desc = "Select VirtualEnv" },
-        { "<leader>cV", "<cmd>:VenvSelectCached<cr>", desc = "Activate Prev VirtualEnv" },
-      },
-    },
+    -- {
+    --   "nvim-neotest/neotest",
+    --   optional = true,
+    --   dependencies = {
+    --     "nvim-neotest/neotest-python",
+    --   },
+    --   opts = {
+    --     adapters = {
+    --       ["neotest-python"] = {
+    --         -- Here you can specify the settings for the adapter, i.e.
+    --         -- runner = "pytest",
+    --         -- python = ".venv/bin/python",
+    --       },
+    --     },
+    --   },
+    -- },
+    -- {
+    --   "mfussenegger/nvim-dap-python",
+    --   -- dependencies = { "linux-cultist/venv-selector.nvim" },
+    --   -- stylua: ignore
+    --   lazy = false,
+    --   ft = { "py" },
+    --   keys = {
+    --     {
+    --       "<leader>dPt",
+    --       function()
+    --         require("dap-python").test_method()
+    --       end,
+    --       desc = "Debug Method",
+    --       ft = "python",
+    --     },
+    --     {
+    --       "<leader>dPc",
+    --       function()
+    --         require("dap-python").test_class()
+    --       end,
+    --       desc = "Debug Class",
+    --       ft = "python",
+    --     },
+    --   },
+    --   config = function()
+    --     require("dap-python").setup(getDebugPywPath())
+    --   end,
+    -- },
+    -- {
+    --   "linux-cultist/venv-selector.nvim",
+    --   cmd = "VenvSelect",
+    --   -- opts = function(_, opts)
+    --   --     opts.dap_enabled = true
+    --   --     return vim.tbl_deep_extend("force", opts, {
+    --   --         name = {
+    --   --             "venv",
+    --   --             ".venv",
+    --   --             "env",
+    --   --             ".env",
+    --   --         },
+    --   --     })
+    --   -- end,
+    --
+    --   config = function()
+    --     local venv_selector = require("venv-selector")
+    --
+    --     venv_selector.setup({
+    --       dap_enabled = true,
+    --       name = { "venv", ".venv" },
+    --       stay_on_this_version = true,
+    --       changed_venv_hooks = {
+    --         -- Pyright
+    --         -- venv_selector.hooks.pyright,
+    --
+    --         -- Ruff
+    --         -- function(venv_path, venv_python) end,
+    --
+    --         -- dap-python
+    --         function(venv_path, _)
+    --           require("dap-python").resolve_python = function()
+    --             -- nvimide.log("YAY!!")
+    --             return venv_path
+    --             -- return venv_path
+    --           end
+    --         end,
+    --         -- function(venv_path, venv_pyton)
+    --         --   nvimide.log("entered vs")
+    --         --   require("dap-python").resolve_python = function()
+    --         --     nvimide.log("entered dp")
+    --         --
+    --         --     return string.reverse(
+    --         --       string.gsub(
+    --         --         string.reverse(require("venv-selector").get_active_path()),
+    --         --         "nohty",
+    --         --         "wnohty",
+    --         --         1
+    --         --       )
+    --         --     )
+    --         --
+    --         --     -- return python2pythonw()
+    --         --   end
+    --         -- end,
+    --
+    --       },
+    --     })
+    --   end,
+    --   keys = {
+    --     { "<leader>cv", "<cmd>:VenvSelect<cr>",       desc = "Select VirtualEnv" },
+    --     { "<leader>cV", "<cmd>:VenvSelectCached<cr>", desc = "Activate Prev VirtualEnv" },
+    --   },
+    -- },
   },
   mason_packages = {
     --"flake8",
@@ -156,20 +141,22 @@ return {
   lsp_config = {
     function(lspconfig, capabilities, custom_attach)
       -- Install pip packages to mason venv
-      local mason_registry = require("mason-registry")
-      if mason_registry.is_installed("python-lsp-server") then
-        local pylsp_pip_path = mason_registry.get_package("python-lsp-server"):get_install_path() .. "/venv/bin/pip"
-        local on_exit = function(obj)
-          if obj.code ~= 0 then
-            print("code: " .. obj.code)
-            print("signal: " .. obj.signal)
-            print("stdout: " .. obj.stdout)
-            print("stderr: " .. obj.stderr)
-          end
-        end
-        -- Runs asynchronously:
-        vim.system({ pylsp_pip_path, "install", "pylsp-rope" }, { text = true }, on_exit)
-      end
+
+      -- Install pylsp-rope in the internal venv - commented because rope is unused (too slow)
+      -- local mason_registry = require("mason-registry")
+      -- if mason_registry.is_installed("python-lsp-server") then
+      --   local pylsp_pip_path = mason_registry.get_package("python-lsp-server"):get_install_path() .. "/venv/bin/pip"
+      --   local on_exit = function(obj)
+      --     if obj.code ~= 0 then
+      --       print("code: " .. obj.code)
+      --       print("signal: " .. obj.signal)
+      --       print("stdout: " .. obj.stdout)
+      --       print("stderr: " .. obj.stderr)
+      --     end
+      --   end
+      --   -- Runs asynchronously:
+      --   vim.system({ pylsp_pip_path, "install", "pylsp-rope" }, { text = true }, on_exit)
+      -- end
 
       --lspconfig.pyright.setup({
       --   on_attach = custom_attach,
@@ -177,11 +164,13 @@ return {
       --})
 
       -- Separate from pylsp since for some reason it doesn't work with code actions
+      -- Does: Linting, Organize Imports, Code Formatting
       lspconfig.ruff.setup({
         on_attach = custom_attach,
         capabilities = capabilities,
       })
 
+      -- Does: Autocompletion, Static Type Checking (mypy) - doesn't work
       lspconfig.pylsp.setup({
         on_attach = custom_attach,
         settings = {
@@ -226,6 +215,30 @@ return {
   },
 
   dap_config = {
+    function(dap)
+      table.insert(dap.configurations.python, 1, {
+        type = "python",
+        request = "launch",
+        name = "Launch Python Interactively (current)",
+        program = "${file}",
+        -- console = "internalConsole",
+        console = "integratedTerminal",
+        redirectOutput = true,
+        -- args = { "-i", "\n", "exit", "0"},
+        -- python = "pythonw",
+        -- python = python2pythonw(require("venv-selector").get_active_path()),
+        -- python = require("dap-python").resolve_python,
+        -- ... more options, see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings
+      })
+      table.insert(dap.configurations.python, 2, {
+        type = "python",
+        request = "launch",
+        name = "Launch Python Interactively (main.py)",
+        program = "main.py",
+        console = "integratedTerminal",
+        redirectOutput = true,
+      })
+    end,
     -- function(dap)
     --     dap.adapters.python = function(cb, config)
     --         if config.request == "attach" then

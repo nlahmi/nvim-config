@@ -12,6 +12,13 @@ local function get_args(config)
   return config
 end
 
+local function reload_vscode_configs()
+  require("dap.ext.vscode").load_launchjs(nil, {
+    gdb = { "c", "cpp" },
+    debugpy = { "python" },
+  })
+end
+
 return {
   "mfussenegger/nvim-dap",
   dependencies = {
@@ -55,11 +62,12 @@ return {
       function()
         -- (Re-)reads launch.json if present
         -- if vim.fn.filereadable(".vscode/launch.json") then
-        require("dap.ext.vscode").load_launchjs(nil, {
-          gdb = { "c", "cpp" },
-          debugpy = { "python" },
-        })
+        -- require("dap.ext.vscode").load_launchjs(nil, {
+        --   gdb = { "c", "cpp" },
+        --   debugpy = { "python" },
+        -- })
         -- end
+        reload_vscode_configs()
         require("dap").continue()
       end,
       desc = "Continue"
@@ -80,15 +88,14 @@ return {
       desc = "Run Last"
     },
     -- { "<leader>dd", function() vim.api.nvim_input("<leader>dl") end, desc = "Run Last" },
-    { "<leader>do", function() require("dap").step_out() end,                                                 desc = "Step Out" },
-    { "<leader>dO", function() require("dap").step_over() end,                                                desc = "Step Over" },
-    { "<leader>dp", function() require("dap").pause() end,                                                    desc = "Pause" },
-    { "<leader>dr", function() require("dap").repl.toggle(nil, "belowright vsplit") end,                      desc = "Toggle REPL" },
-    { "<leader>ds", function() require("dap").session() end,                                                  desc = "Session" },
-    { "<leader>dt", function() require("dap").terminate() end,                                                desc = "Terminate" },
-    { "<leader>dw", function() require("dap.ui.widgets").hover() end,                                         desc = "Debug Hover" },
-    -- TODO: re-use the same load_launchjs as above
-    { "<leader>dv", function() require("dap.ext.vscode").load_launchjs(nil, { cppdbg = { "c", "cpp" } }) end, desc = "Reload .vscode" },
+    { "<leader>do", function() require("dap").step_out() end,                            desc = "Step Out" },
+    { "<leader>dO", function() require("dap").step_over() end,                           desc = "Step Over" },
+    { "<leader>dp", function() require("dap").pause() end,                               desc = "Pause" },
+    { "<leader>dr", function() require("dap").repl.toggle(nil, "belowright vsplit") end, desc = "Toggle REPL" },
+    { "<leader>ds", function() require("dap").session() end,                             desc = "Session" },
+    { "<leader>dt", function() require("dap").terminate() end,                           desc = "Terminate" },
+    { "<leader>dw", function() require("dap.ui.widgets").hover() end,                    desc = "Debug Hover" },
+    { "<leader>dv", reload_vscode_configs,                                               desc = "Reload .vscode" },
   },
 
   config = function()
