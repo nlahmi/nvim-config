@@ -41,7 +41,11 @@ return {
         -- NOTE: use `print(vim.bo.filetype)` to figure out the buffer type
 
         -- Don't show DAP Repl or Quickfix buffers
-        if vim.bo[buf].filetype == "dap-repl" or vim.bo[buf].filetype == "dap-repl" then
+        if
+          vim.bo[buf].filetype == "dap-repl"
+          or vim.bo[buf].filetype == "fugitive"
+          or vim.bo[buf].filetype == "dap-repl"
+        then
           return false
         end
 
