@@ -44,7 +44,7 @@ return {
         if
           vim.bo[buf].filetype == "dap-repl"
           or vim.bo[buf].filetype == "fugitive"
-          or vim.bo[buf].filetype == "dap-repl"
+          or vim.bo[buf].filetype == "qf"
         then
           return false
         end
