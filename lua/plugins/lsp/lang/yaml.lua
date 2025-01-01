@@ -11,7 +11,28 @@ return {
       },
       config = function()
         require("telescope").load_extension("yaml_schema")
-        require("lspconfig").yamlls.setup(require("yaml-companion").setup())
+        require("lspconfig").yamlls.setup(require("yaml-companion").setup({
+          lspconfig = {
+            filetypes = { "yaml", "yaml.docker-compose", "yaml.gitlab", "yml" },
+            settings = {
+              yaml = {
+                redhat = { telemetry = { enabled = false } },
+                format = {
+                  enable = true,
+                },
+                validate = true,
+                schemaStore = {
+                  -- You must disable built-in schemaStore support if you want to use
+                  -- this plugin and its advanced options like `ignore`.
+                  enable = false,
+                  -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
+                  url = "",
+                },
+                schemas = require("schemastore").yaml.schemas(),
+              },
+            },
+          },
+        }))
       end,
     },
   },
@@ -37,6 +58,8 @@ return {
     --   lspconfig.yamlls.setup({
     --     on_attach = custom_attach,
     --     -- capabilities = capabilities,
+    --
+    --     filetypes = { "yaml", "yaml.docker-compose", "yaml.gitlab", "yml" },
     --     settings = {
     --       yaml = {
     --         redhat = { telemetry = { enabled = false } },
