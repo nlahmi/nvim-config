@@ -22,11 +22,33 @@ end
 return {
   "mfussenegger/nvim-dap",
   dependencies = {
-    -- fancy UI for the debugger
+    -- Fancy UI for the debugger
     { "rcarriga/nvim-dap-ui" },
 
-    -- virtual text for the debugger
-    { "theHamsta/nvim-dap-virtual-text", opts = {} },
+    -- Virtual text for the debugger
+    {
+      "theHamsta/nvim-dap-virtual-text",
+      opts = {
+        --- A callback that determines how a variable is displayed or whether it should be omitted
+        display_callback = function(variable, buf, stackframe, node, options)
+          -- By default, strip out new line characters
+          local stripped = variable.value:gsub("%s+", " ")
+
+          -- Limit size because it's annoying
+          local max_len = 20
+          if string.len(stripped) > max_len then
+            stripped = string.sub(stripped, 0, max_len) .. "..."
+          end
+
+          -- Inline vs not
+          if options.virt_text_pos == "inline" then
+            return " = " .. stripped
+          else
+            return variable.name .. " = " .. stripped
+          end
+        end,
+      },
+    },
 
     -- mason.nvim integration
     {
