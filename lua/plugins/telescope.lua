@@ -20,5 +20,9 @@ return {
 
       require("telescope").load_extension("ui-select")
     end,
+    -- stylua: ignore
+    keys = {
+      { "<leader>ff", function() require("telescope.builtin").find_files({ hidden = true }) end, desc = "Find Files (Hidden)", },
+    },
   },
 }
