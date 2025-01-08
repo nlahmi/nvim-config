@@ -33,7 +33,7 @@ local custom_attach = function(client, bufnr)
   -- Todo: debug these, they don't show up in which-key and don't always work
   map("n", "gd", vim.lsp.buf.definition, { desc = "Go to Definition" })
   map("n", "<C-]>", vim.lsp.buf.definition, { desc = "Go to Definition" })
-  map("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
+  -- map("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
   map("n", "<leader>cs", vim.lsp.buf.signature_help, { desc = "Signature" })
   map("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename Variable" })
   map("n", "gr", vim.lsp.buf.references, { desc = "Show References" })
