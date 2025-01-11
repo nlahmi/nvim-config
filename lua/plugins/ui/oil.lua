@@ -26,8 +26,9 @@ return {
       },
       columns = {
         "icon",
-        "permissions",
-        "size",
+        -- "name",
+        -- "permissions",
+        -- "size",
       },
     })
   end,
