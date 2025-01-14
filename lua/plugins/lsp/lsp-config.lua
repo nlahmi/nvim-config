@@ -31,12 +31,15 @@ local custom_attach = function(client, bufnr)
   end
 
   -- Todo: debug these, they don't show up in which-key and don't always work
-  map("n", "gd", vim.lsp.buf.definition, { desc = "Go to Definition" })
-  map("n", "<C-]>", vim.lsp.buf.definition, { desc = "Go to Definition" })
+  map("n", "gd", "<cmd>Telescope lsp_definitions<cr>", { desc = "Go to Definition (Telescope)" })
+  map("n", "gD", vim.lsp.buf.definition, { desc = "Go to Definition (qf)" })
+  -- map("n", "<C-]>", vim.lsp.buf.definition, { desc = "Go to Definition" })
   -- map("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
   map("n", "<leader>cs", vim.lsp.buf.signature_help, { desc = "Signature" })
   map("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename Variable" })
-  map("n", "gr", vim.lsp.buf.references, { desc = "Show References" })
+  map("n", "gr", "<cmd>Telescope lsp_references<cr>", { desc = "Show References (Telescope)" })
+  -- { includeDeclaration = false }
+  map("n", "gR", vim.lsp.buf.references, { desc = "Show References (qf)" })
   map("n", "[d", diagnostic.goto_prev, { desc = "Previous Piagnostic" })
   map("n", "]d", diagnostic.goto_next, { desc = "Next Diagnostic" })
   -- this puts diagnostics from opened files to quickfix
