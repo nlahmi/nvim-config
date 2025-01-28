@@ -9,6 +9,7 @@ local all_langs = {
     require("plugins.lsp.lang.spellcheck"),
     require("plugins.lsp.lang.javascript"),
     require("plugins.lsp.lang.ansible"),
+    require("plugins.lsp.lang.dotnet"),
 }
 
 local out = {
