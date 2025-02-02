@@ -8,6 +8,12 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
       require("telescope").setup({
+        defaults = {
+          preview = {
+            filesize_limit = 0.9999,
+            timeout = 250,
+          },
+        },
         extensions = {
           ["ui-select"] = {
             require("telescope.themes").get_dropdown({}),
