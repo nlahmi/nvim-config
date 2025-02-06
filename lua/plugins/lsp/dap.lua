@@ -12,12 +12,12 @@ local function get_args(config)
   return config
 end
 
-local function reload_vscode_configs()
-  require("dap.ext.vscode").load_launchjs(nil, {
-    gdb = { "c", "cpp" },
-    debugpy = { "python" },
-  })
-end
+-- local function reload_vscode_configs()
+--   require("dap.ext.vscode").load_launchjs(nil, {
+--     gdb = { "c", "cpp" },
+--     debugpy = { "python" },
+--   })
+-- end
 
 return {
   "mfussenegger/nvim-dap",
@@ -103,7 +103,7 @@ return {
     { "<leader>ds", function() require("dap").session() end,                             desc = "Session" },
     { "<leader>dt", function() require("dap").terminate() end,                           desc = "Terminate" },
     { "<leader>dw", function() require("dap.ui.widgets").hover() end,                    desc = "Debug Hover" },
-    { "<leader>dv", reload_vscode_configs,                                               desc = "Reload .vscode" },
+    -- { "<leader>dv", reload_vscode_configs,                                               desc = "Reload .vscode" },
   },
 
   config = function()
