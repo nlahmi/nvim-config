@@ -43,7 +43,8 @@ return {
         return {
           -- How to find the root dir for a given filename. The default comes from
           -- lspconfig which provides a function specifically for java projects.
-          root_dir = require("lspconfig.server_configurations.jdtls").default_config.root_dir,
+          -- root_dir = require("lspconfig.server_configurations.jdtls").default_config.root_dir,
+          -- root_dir = vim.fs.root(0, { ".git", "mvnw", "gradlew" }),
 
           -- How to find the project name for a given root dir.
           project_name = function(root_dir)
@@ -117,7 +118,7 @@ return {
           -- Configuration can be augmented and overridden by opts.jdtls
           local config = extend_or_override({
             cmd = { vim.fn.exepath("jdtls") }, --opts.full_cmd(opts),
-            root_dir = require("lspconfig.server_configurations.jdtls").default_config.root_dir(),
+            -- root_dir = require("lspconfig.server_configurations.jdtls").default_config.root_dir(),
             init_options = {
               bundles = bundles,
             },
@@ -210,5 +211,12 @@ return {
 
   nonls_packages = {},
 
-  lsp_config = {},
+  lsp_config = {
+    function(lspconfig, capabilities, custom_attach)
+      lspconfig.jdtls.setup({
+        on_attach = custom_attach,
+        capabilities = capabilities,
+      })
+    end,
+  },
 }
