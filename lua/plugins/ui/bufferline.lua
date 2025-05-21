@@ -17,6 +17,9 @@ return {
   opts = {
     options = {
       close_command = function(n)
+        -- if vim.api.nvim_get_current_buf() == n then
+        --   vim.cmd("bn")
+        -- end
         require("mini.bufremove").delete(n, false)
       end,
       -- right_mouse_command = function(n) require("mini.bufremove").delete(n, false) end,
@@ -41,11 +44,7 @@ return {
         -- NOTE: use `print(vim.bo.filetype)` to figure out the buffer type
 
         -- Don't show DAP Repl or Quickfix buffers
-        if
-          vim.bo[buf].filetype == "dap-repl"
-          or vim.bo[buf].filetype == "fugitive"
-          or vim.bo[buf].filetype == "qf"
-        then
+        if vim.bo[buf].filetype == "dap-repl" or vim.bo[buf].filetype == "fugitive" or vim.bo[buf].filetype == "qf" then
           return false
         end
 
