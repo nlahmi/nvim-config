@@ -30,23 +30,26 @@ local custom_attach = function(client, bufnr)
     keymap.set(mode, l, r, opts)
   end
 
-  -- Todo: debug these, they don't show up in which-key and don't always work
+  -- stylua: ignore
   map("n", "gd", "<cmd>Telescope lsp_definitions<cr>", { desc = "Go to Definition (Telescope)" })
   map("n", "gD", vim.lsp.buf.definition, { desc = "Go to Definition (qf)" })
   -- map("n", "<C-]>", vim.lsp.buf.definition, { desc = "Go to Definition" })
-  -- map("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
+  map("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
   map("n", "<leader>cs", vim.lsp.buf.signature_help, { desc = "Signature" })
   map("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename Variable" })
+  -- stylua: ignore
   map("n", "gr", "<cmd>Telescope lsp_references include_declaration=false<cr>", { desc = "Show References (Telescope)" })
   map("n", "gR", vim.lsp.buf.references, { desc = "Show References (qf)" })
-  map("n", "[d", diagnostic.goto_prev, { desc = "Previous Piagnostic" })
-  map("n", "]d", diagnostic.goto_next, { desc = "Next Diagnostic" })
-  -- this puts diagnostics from opened files to quickfix
+  -- stylua: ignore
+  map("n", "[d", function() diagnostic.jump({ count = -1, float = true }) end, { desc = "Previous Piagnostic" })
+  -- stylua: ignore
+  map("n", "]d", function() diagnostic.jump({ count = 1, float = true }) end, { desc = "Next Diagnostic" })
+  -- This puts diagnostics from opened files to quickfix
+  -- stylua: ignore
   map("n", "<leader>xw", diagnostic.setqflist, { desc = "Put Window Diagnostics to qf" })
-  -- this puts diagnostics from current buffer to quickfix
-  map("n", "<leader>xb", function()
-    set_qflist(bufnr)
-  end, { desc = "Put buffer diagnostics to qf" })
+  -- This puts diagnostics from current buffer to quickfix
+  -- stylua: ignore
+  map("n", "<leader>xb", function() set_qflist(bufnr) end, { desc = "Put buffer diagnostics to qf" })
 
   map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP code action" })
   map("n", "<leader>cwa", vim.lsp.buf.add_workspace_folder, { desc = "Add Workspace Folder" })
@@ -80,8 +83,8 @@ local custom_attach = function(client, bufnr)
 
       local cursor_pos = api.nvim_win_get_cursor(0)
       if
-        (cursor_pos[1] ~= vim.b.diagnostics_pos[1] or cursor_pos[2] ~= vim.b.diagnostics_pos[2])
-        and #diagnostic.get() > 0
+          (cursor_pos[1] ~= vim.b.diagnostics_pos[1] or cursor_pos[2] ~= vim.b.diagnostics_pos[2])
+          and #diagnostic.get() > 0
       then
         diagnostic.open_float(nil, float_opts)
       end
@@ -147,6 +150,7 @@ return {
       --   capabilities = capabilities,
       -- })
 
+      -- TODO: Since nvim 0.11.0, there is a native way to setup LSPs (vim.lsp.config instead of lsp-config)
       for _, f in pairs(lang.lsp_config) do
         f(lspconfig, capabilities, custom_attach)
       end

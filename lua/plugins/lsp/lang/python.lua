@@ -128,10 +128,10 @@ return {
     "python-lsp-server",
     "jedi-language-server",
     "debugpy",
-    "black",
-    "pylint",
-    "mypy",
-    "isort",
+    -- "black",
+    -- "pylint",
+    -- "mypy",
+    -- "isort",
     "ruff",
   },
   nonls_packages = {
@@ -158,20 +158,20 @@ return {
       --   vim.system({ pylsp_pip_path, "install", "pylsp-rope" }, { text = true }, on_exit)
       -- end
 
-      --lspconfig.pyright.setup({
+      -- vim.lsp.config("pyright", {
       --   on_attach = custom_attach,
       --    capabilities = capabilities,
-      --})
+      -- })
 
       -- Separate from pylsp since for some reason it doesn't work with code actions
       -- Does: Linting, Organize Imports, Code Formatting
-      lspconfig.ruff.setup({
+      vim.lsp.config("ruff", {
         on_attach = custom_attach,
         capabilities = capabilities,
       })
 
       -- Does: Autocompletion, Static Type Checking (mypy) - doesn't work
-      lspconfig.pylsp.setup({
+      vim.lsp.config("pylsp", {
         on_attach = custom_attach,
         settings = {
           configurationSources = { "pycodestyle", "flake8" },
@@ -184,17 +184,19 @@ return {
               -- linter options
               pylint = { enabled = false, executable = "pylint" }, -- Used to be on, but is too verbose and also isn't configured yet with venv
               ruff = { enabled = false },
-              pyflakes = { enabled = false },
+              pyflakes = { enabled = true },
               pycodestyle = { enabled = false },
               -- type checker
               pylsp_mypy = {
-                enabled = true,
+                enabled = false,
                 report_progress = true,
                 live_mode = true,
               },
               -- auto-completion options
-              jedi_completion = { enabled = true, fuzzy = true },
+              jedi_completion = { enabled = false, fuzzy = true },
               jedi_rename = { enabled = true },
+              jedi_hover = { enabled = false },
+              jedi_signature_help = { enabled = false },
               -- import sorting
               isort = { enabled = false }, -- Works when disabled
               pylsp_rope = { enabled = false },
@@ -202,6 +204,7 @@ return {
               rope_completion = {
                 enabled = false,
               },
+
               -- pydocstyle = { enabled = true },
             },
           },
@@ -216,7 +219,6 @@ return {
 
   dap_config = {
     function(dap)
-
       -- Find the correct python path (venv or global)
       local function get_py_exe(venv_path)
         if venv_path == nil then
