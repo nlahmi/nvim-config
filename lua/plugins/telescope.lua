@@ -23,6 +23,7 @@ return {
       local builtin = require("telescope.builtin")
       vim.keymap.set("n", "<C-p>", builtin.find_files, { desc = "Find Files" })
       vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Grep in Files" })
+      vim.keymap.set("n", "<leader>fr", builtin.resume, { desc = "Resume Telescope" })
 
       require("telescope").load_extension("ui-select")
     end,

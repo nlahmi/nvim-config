@@ -1,5 +1,6 @@
 return {
   "akinsho/git-conflict.nvim",
+  lazy = false,
   version = "*",
   config = true,
   -- TODO: Consider remapping default keys
