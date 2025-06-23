@@ -83,8 +83,8 @@ local custom_attach = function(client, bufnr)
 
       local cursor_pos = api.nvim_win_get_cursor(0)
       if
-          (cursor_pos[1] ~= vim.b.diagnostics_pos[1] or cursor_pos[2] ~= vim.b.diagnostics_pos[2])
-          and #diagnostic.get() > 0
+        (cursor_pos[1] ~= vim.b.diagnostics_pos[1] or cursor_pos[2] ~= vim.b.diagnostics_pos[2])
+        and #diagnostic.get() > 0
       then
         diagnostic.open_float(nil, float_opts)
       end
@@ -135,6 +135,9 @@ return {
   {
     "neovim/nvim-lspconfig",
     lazy = false,
+    opts = {
+      format = { timeout_ms = 1000 },
+    },
     config = function()
       -- Allow LSPs to use nvim-cmp's completion engine instead of nvim's
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
