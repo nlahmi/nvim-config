@@ -11,7 +11,7 @@ return {
   lazy = false,
   keys = {
     { "<leader>ga", "<cmd>Git add *<cr>", desc = "Add *" },
-    { "<leader>gb", "<cmd>G blame<cr>", desc = "Blame" },
+    { "<leader>gb", "<cmd>Git blame<cr>", desc = "Blame" },
     { "<leader>gB", "<cmd>GBrowse<cr>", desc = "Browse" },
     { "<leader>gc", "<cmd>Git commit<cr>i", desc = "Commit" },
     { "<leader>gd", "<cmd>Gvdiffsplit<cr>", desc = "Diff (Split)" },
