@@ -76,7 +76,7 @@ return {
 
   -- stylua: ignore
   keys = {
-    { "<leader>dR", function() require("persistent-breakpoints.api").clear_all_breakpoints() end,      desc = "Breakpoint Condition" },
+    { "<leader>dR", function() require("persistent-breakpoints.api").clear_all_breakpoints() end,      desc = "Clear all Breakpoints" },
     { "<leader>dB", function() require("persistent-breakpoints.api").set_conditional_breakpoint() end, desc = "Breakpoint Condition" },
     { "<leader>db", function() require("persistent-breakpoints.api").toggle_breakpoint() end,          desc = "Toggle Breakpoint" },
     { "<leader>dc", function() require("dap").continue() end,                                          desc = "Continue" },
