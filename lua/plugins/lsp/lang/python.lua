@@ -244,6 +244,8 @@ return {
 
       local py_path = get_py_exe()
 
+      dap.adapters.python.options = { env = { PYDEVD_UNBLOCK_THREADS_TIMEOUT = "3" } }
+
       -- Insert our default configs
       table.insert(dap.configurations.python, 1, {
         type = "python",

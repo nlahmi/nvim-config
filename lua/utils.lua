@@ -8,6 +8,11 @@
 --   end
 -- end
 
+P = function(v)
+  print(vim.inspect(v))
+  return v
+end
+
 return {
 
   -- get_py_exe = function(install_path)
