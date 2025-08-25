@@ -1,5 +1,6 @@
 return {
     "rmagatti/auto-session",
+    version = "*",
     -- keys = { {"<leader>qs", require("auto-session.session-lens").search_session, desc = "Switch Session"} },
     config = function()
         require("auto-session").setup({
