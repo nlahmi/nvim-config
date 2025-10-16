@@ -10,6 +10,9 @@ local all_langs = {
     require("plugins.lsp.lang.javascript"),
     require("plugins.lsp.lang.ansible"),
     require("plugins.lsp.lang.dotnet"),
+    require("plugins.lsp.lang.go"),
+    require("plugins.lsp.lang.cmake"),
+    require("plugins.lsp.lang.powershell"),
 }
 
 local out = {
