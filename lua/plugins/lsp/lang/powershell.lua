@@ -27,6 +27,7 @@ return {
   --     dap.configurations.ps1 = dap.configurations.ps1 or {}
   --
   --     -- Insert our default configs
+        command = "powershell.exe",
   --     table.insert(dap.configurations.ps1, 1, {
   --       name = "PowerShell: Launch Current File (powershell.exe)",
   --       type = "ps1",

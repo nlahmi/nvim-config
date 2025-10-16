@@ -33,8 +33,8 @@ return {
   nonls_packages = {},
 
   lsp_config = {
-    function(lspconfig, capabilities, custom_attach)
-      lspconfig.neocmake.setup({
+    function(_, capabilities, custom_attach)
+      vim.lsp.config("neocmake", {
         capabilities = capabilities,
         on_attach = custom_attach,
       })

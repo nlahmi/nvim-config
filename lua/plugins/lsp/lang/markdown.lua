@@ -123,8 +123,8 @@ return {
   },
 
   lsp_config = {
-    function(lspconfig, capabilities, custom_attach)
-      require("lspconfig").marksman.setup({ on_attach = custom_attach })
+    function(_, capabilities, custom_attach)
+      vim.lsp.config("marksman", { on_attach = custom_attach, capabilities = capabilities })
     end,
   },
 }

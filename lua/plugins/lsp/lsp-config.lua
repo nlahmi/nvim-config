@@ -142,6 +142,7 @@ return {
       -- Allow LSPs to use nvim-cmp's completion engine instead of nvim's
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+      -- Legacy
       local lspconfig = require("lspconfig")
       -- lspconfig.tsserver.setup({
       --   capabilities = capabilities,
