@@ -28,8 +28,8 @@ return {
 
   lsp_config = {
 
-    function(lspconfig, capabilities, custom_attach)
-      lspconfig.jsonls.setup({
+    function(_, capabilities, custom_attach)
+      vim.lsp.config("jsonls", {
         on_attach = custom_attach,
         capabilities = capabilities,
         settings = {

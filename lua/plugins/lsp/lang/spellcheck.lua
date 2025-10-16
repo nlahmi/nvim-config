@@ -8,8 +8,8 @@ return {
   nonls_packages = {},
 
   lsp_config = {
-    function(lspconfig, capabilities, custom_attach)
-      lspconfig.harper_ls.setup({
+    function(_, capabilities, custom_attach)
+      vim.lsp.config("harper_ls",{
         settings = {
           ["harper-ls"] = {
             linters = {

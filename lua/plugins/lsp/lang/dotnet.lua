@@ -16,8 +16,8 @@ return {
 
   lsp_config = {
 
-    function(lspconfig, capabilities, custom_attach)
-      lspconfig.csharp_ls.setup({
+    function(_, capabilities, custom_attach)
+      vim.lsp.config("csharp_ls", {
         capabilities = capabilities,
         on_attach = custom_attach,
         handlers = {

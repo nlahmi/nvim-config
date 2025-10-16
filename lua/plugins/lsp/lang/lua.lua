@@ -22,8 +22,8 @@ return {
   nonls_packages = {},
 
   lsp_config = {
-    function(lspconfig, capabilities, custom_attach)
-      lspconfig.lua_ls.setup({
+    function(_, capabilities, custom_attach)
+      vim.lsp.config("lua_ls", {
         on_attach = custom_attach,
         settings = {
           Lua = {

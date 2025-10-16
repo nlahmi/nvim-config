@@ -56,8 +56,8 @@ return {
   nonls_packages = {},
 
   lsp_config = {
-    function(lspconfig, capabilities, custom_attach)
-      lspconfig.clangd.setup({
+    function(_, capabilities, custom_attach)
+      vim.lsp.config("clangd", {
         capabilities = capabilities,
         on_attach = custom_attach,
       })

@@ -8,8 +8,8 @@ return {
   nonls_packages = {},
 
   lsp_config = {
-    function(lspconfig, capabilities, custom_attach)
-      lspconfig.vtsls.setup({
+    function(_, capabilities, custom_attach)
+      vim.lsp.config("vtsls", {
         capabilities = capabilities,
         on_attach = custom_attach,
       })
