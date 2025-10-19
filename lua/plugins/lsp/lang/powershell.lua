@@ -1,5 +1,14 @@
 return {
-  packages = {},
+  packages = {
+    {
+      "TheLeoP/powershell.nvim",
+      ---@type powershell.user_config
+      opts = {
+        shell = "powershell.exe",
+        bundle_path = vim.fn.stdpath("data") .. "/mason/packages/powershell-editor-services/PowerShellEditorServices",
+      },
+    },
+  },
 
   mason_packages = {
     "powershell-editor-services",
@@ -27,7 +36,7 @@ return {
   --     dap.configurations.ps1 = dap.configurations.ps1 or {}
   --
   --     -- Insert our default configs
-        command = "powershell.exe",
+  --     command = "powershell.exe",
   --     table.insert(dap.configurations.ps1, 1, {
   --       name = "PowerShell: Launch Current File (powershell.exe)",
   --       type = "ps1",
