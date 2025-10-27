@@ -13,6 +13,7 @@ local all_langs = {
     require("plugins.lsp.lang.go"),
     require("plugins.lsp.lang.cmake"),
     require("plugins.lsp.lang.powershell"),
+    -- require("plugins.lsp.lang.bazel"),
 }
 
 local out = {
