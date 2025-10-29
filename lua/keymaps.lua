@@ -183,6 +183,7 @@ vim.keymap.set("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous
 -- run
 -- Todo: move this to it's lsp config and specify ft
 vim.keymap.set("n", "<leader>rk", "<cmd>!kubectl apply -f %<cr>", { desc = "Kubectl Apply Current File" })
+vim.keymap.set("n", "<leader>rc", "<cmd>!chezmoi apply<cr>", { desc = "Chezmoi Apply" })
 
 vim.keymap.set("n", "<leader>rf", "<cmd>w<cr><cmd>!acli mani-pedi --file %<cr>", { desc = "ACLI Mani Pedi (current file)" })
 vim.keymap.set("n", "<leader>rF", "<cmd>wa<cr><cmd>!acli mani-pedi<cr>", { desc = "ACLI Mani Pedi (entire project)" })
