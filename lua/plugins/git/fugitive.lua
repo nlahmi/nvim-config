@@ -6,6 +6,14 @@ local function ask_commit_msg()
   vim.ui.input({ prompt = "Enter commit message: " }, add_commit_push)
 end
 
+local function merge_from(branch)
+  vim.cmd(':Git fetch | :Git merge ' .. branch)
+end
+
+local function ask_merge_from()
+  vim.ui.input({ prompt = "Merge from branch: " }, merge_from)
+end
+
 return {
   "tpope/vim-fugitive",
   lazy = false,
@@ -24,6 +32,8 @@ return {
     { "<leader>gk", ask_commit_msg, desc = "Commit and Push" },
     { "<leader>gK", function() add_commit_push("auto commit") end, desc = "Auto Commit" },
     { "<leader>gl", "<cmd>Git log<cr>", desc = "Log" },
+    { "<leader>gm", function() add_commit_push("origin/master") end, desc = "Merge from master" },
+    { "<leader>gM", ask_merge_from, desc = "Merge from (ask)" },
     { "<leader>gp", "<cmd>Git push<cr>", desc = "Push" },
     { "<leader>gr", "<cmd>Git pull --rebase<cr>", desc = "Pull (Rebase)" },
     { "<leader>gs", "<cmd>Git stash<cr>", desc = "Stash" },
