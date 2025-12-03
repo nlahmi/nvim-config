@@ -76,6 +76,15 @@ return {
         redirectOutput = true,
         pythonPath = py_path,
       })
+      table.insert(dap.configurations.python, 3, {
+        type = "python",
+        request = "launch",
+        name = "Launch Python Interactively (test.py)",
+        program = "test.py",
+        console = "integratedTerminal",
+        redirectOutput = true,
+        pythonPath = py_path,
+      })
     end,
   },
 }
