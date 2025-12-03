@@ -1,12 +1,13 @@
 {
+    "$schema": "https://raw.githubusercontent.com/mfussenegger/dapconfig-schema/master/dapconfig-schema.json",
     "version": "0.2.0",
     "configurations": [
         {
             "name": "Debug: main.py",
-            "type": "debugpy",
+            "type": "python",
             "request": "launch",
             "program": "main.py",
-            "python": "venv/Scripts/pythonw",
+            "python": "${workspaceFolder}/.venv/bin/python",
             "console": "integratedTerminal",
             "redirectOutput": true,
             "envFile": ".env"
