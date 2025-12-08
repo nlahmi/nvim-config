@@ -14,6 +14,7 @@ local all_langs = {
     require("plugins.lsp.lang.cmake"),
     require("plugins.lsp.lang.powershell"),
     require("plugins.lsp.lang.bazel"),
+    require("plugins.lsp.lang.sh"),
 }
 
 local out = {

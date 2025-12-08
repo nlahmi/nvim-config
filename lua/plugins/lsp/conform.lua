@@ -23,6 +23,7 @@ return {
       -- python = { "isort", "black" },
       python = { "ruff" },
       javascript = { "prettierd", "prettier", stop_after_first = true },
+      sh = { "shfmt", stop_after_first = true },
     },
     -- Set default options
     default_format_opts = {
@@ -33,7 +34,7 @@ return {
     -- Customize formatters
     formatters = {
       shfmt = {
-        append_args = { "-i", "2" },
+        append_args = { "-i", "4" },
       },
     },
   },
