@@ -19,11 +19,13 @@ return {
   opts = {
     -- Define your formatters
     formatters_by_ft = {
+      -- TODO: Separate in each lang
       lua = { "stylua" },
       -- python = { "isort", "black" },
       python = { "ruff" },
       javascript = { "prettierd", "prettier", stop_after_first = true },
-      sh = { "shfmt", stop_after_first = true },
+      sh = { "shfmt" },
+      awk = { "gawk" },
     },
     -- Set default options
     default_format_opts = {
