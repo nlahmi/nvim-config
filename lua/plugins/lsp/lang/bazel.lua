@@ -19,7 +19,7 @@ return {
     -- },
   },
 
-  mason_packages = { "starpls" },
+  mason_packages = { "starpls", "buildifier" },
 
   nonls_packages = {},
 

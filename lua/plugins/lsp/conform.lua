@@ -26,6 +26,7 @@ return {
       javascript = { "prettierd", "prettier", stop_after_first = true },
       sh = { "shfmt" },
       awk = { "gawk" },
+      bzl = { "buildifier" },
     },
     -- Set default options
     default_format_opts = {
