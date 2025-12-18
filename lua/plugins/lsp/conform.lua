@@ -22,7 +22,7 @@ return {
       -- TODO: Separate in each lang
       lua = { "stylua" },
       -- python = { "isort", "black" },
-      python = { "ruff" },
+      python = { "ruff_format" },
       javascript = { "prettierd", "prettier", stop_after_first = true },
       sh = { "shfmt" },
       awk = { "gawk" },
