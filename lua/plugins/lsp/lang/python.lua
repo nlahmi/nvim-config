@@ -37,7 +37,7 @@ return {
       },
       -- stylua: ignore
       keys = {
-        { "<leader>cm", function() require("conform").format({ formatters = { "isort", "autopep8", async = true } }) end, desc = "Mani Pedi" },
+        { "<leader>cm", function() require("conform").format({ formatters = { "ruff_format", "isort", "autopep8", async = true } }) end, desc = "Mani Pedi" },
       },
     },
   },
