@@ -2,16 +2,9 @@ return {
   "stevearc/conform.nvim",
   event = { "BufWritePre" },
   cmd = { "ConformInfo" },
+  -- stylua: ignore
   keys = {
-    {
-      -- Customize or remove this keymap to your liking
-      "<leader>cf",
-      function()
-        require("conform").format({ async = true })
-      end,
-      mode = "",
-      desc = "Format buffer",
-    },
+    { "<leader>cf", function() require("conform").format({ async = true }) end, desc = "Format (Conform)" },
   },
   -- This will provide type hinting with LuaLS
   ---@module "conform"

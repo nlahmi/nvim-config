@@ -6,6 +6,38 @@ return {
         formatters_by_ft = {
           python = { "ruff_format" },
         },
+        formatters = {
+          isort = {
+            inherit =true,
+            -- command = "isort",
+            prepend_args = {
+              "--force-single-line-imports",
+              "--force-sort-within-sections",
+              "--known-local-folder",
+              "acli,armis,armis_sdk,data_analysis,demo,deploy,scripts,util",
+              "--line-length",
+              "500",
+              "--order-by-type",
+              "--use-parentheses",
+            },
+          },
+          autopep8 = {
+            inherit =true,
+            -- command = "autopep8",
+            prepend_args = {
+              "--in-place",
+              "--max-line-length",
+              "120",
+              "--experimental",
+              "--ignore",
+              "E301",
+            },
+          },
+        },
+      },
+      -- stylua: ignore
+      keys = {
+        { "<leader>cm", function() require("conform").format({ formatters = { "isort", "autopep8", async = true } }) end, desc = "Mani Pedi" },
       },
     },
   },
@@ -14,6 +46,8 @@ return {
     "jedi-language-server",
     "debugpy",
     "ruff",
+    "isort",
+    "autopep8",
   },
   nonls_packages = {},
 

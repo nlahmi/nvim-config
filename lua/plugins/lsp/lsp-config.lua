@@ -63,7 +63,7 @@ local custom_attach = function(client, bufnr)
 
   -- Set some key bindings conditional on server capabilities
   -- if client.server_capabilities.documentFormattingProvider then
-  map("n", "<leader>cF", vim.lsp.buf.format, { desc = "Format" })
+  map("n", "<leader>cF", vim.lsp.buf.format, { desc = "Format (LSP)" })
   -- end
 
   api.nvim_create_autocmd("CursorHold", {
