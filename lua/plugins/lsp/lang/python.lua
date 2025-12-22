@@ -8,7 +8,7 @@ return {
         },
         formatters = {
           isort = {
-            inherit =true,
+            inherit = true,
             -- command = "isort",
             prepend_args = {
               "--force-single-line-imports",
@@ -22,10 +22,10 @@ return {
             },
           },
           autopep8 = {
-            inherit =true,
+            inherit = true,
             -- command = "autopep8",
             prepend_args = {
-              "--in-place",
+              -- "--in-place",
               "--max-line-length",
               "120",
               "--experimental",
