@@ -1,5 +1,15 @@
 return {
-  packages = {},
+  packages = {
+    {
+      "stevearc/conform.nvim",
+      opts = {
+        formatters_by_ft = {
+          python = { "ruff_format" },
+        },
+      },
+    },
+  },
+
   mason_packages = {
     "jedi-language-server",
     "debugpy",
