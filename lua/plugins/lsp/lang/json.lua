@@ -8,14 +8,9 @@ return {
         "nvim-telescope/telescope.nvim",
         "phelipetls/jsonpath.nvim",
       },
+      -- stylua: ignore
       keys = {
-        {
-          "<leader>fj",
-          "<cmd>Telescope jsonfly<cr>",
-          desc = "Open json(fly)",
-          ft = { "json", "xml", "yaml" },
-          mode = "n",
-        },
+        { "<leader>fj", "<cmd>Telescope jsonfly<cr>", desc = "Open json(fly)", ft = { "json", "xml", "yaml" }, mode = "n" },
       },
     },
   },
