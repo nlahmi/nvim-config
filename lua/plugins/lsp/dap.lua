@@ -80,6 +80,7 @@ return {
     { "<leader>dB", function() require("persistent-breakpoints.api").set_conditional_breakpoint() end, desc = "Breakpoint Condition" },
     { "<leader>db", function() require("persistent-breakpoints.api").toggle_breakpoint() end,          desc = "Toggle Breakpoint" },
     { "<leader>dc", function() require("dap").continue() end,                                          desc = "Continue" },
+    { "<leader>dn", "<cmd>DapNew<cr>",                                                                 desc = "New" },
     { "<leader>da", function() require("dap").continue({ before = get_args }) end,                     desc = "Run with Args" },
     { "<leader>dC", function() require("dap").run_to_cursor() end,                                     desc = "Run to Cursor" },
     { "<leader>dg", function() require("dap").goto_() end,                                             desc = "Go to line (no execute)" },
