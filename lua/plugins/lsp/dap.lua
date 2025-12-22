@@ -24,6 +24,7 @@ return {
     "Joakker/lua-json5",
     lazy = false,
     -- build = "./install.sh",
+    -- NOTE: You need cargo (only worked for me using rustup)
     build = function()
       if vim.fn.has("unix") == 1 then
         print("linux!")
