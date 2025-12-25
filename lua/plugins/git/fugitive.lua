@@ -7,16 +7,45 @@ local function ask_commit_msg()
 end
 
 local function merge_from(branch)
-  vim.cmd(':Git fetch | :Git merge ' .. branch)
+  -- print("Merging from " .. branch)
+  vim.cmd(":Git merge " .. branch)
 end
 
-local function ask_merge_from()
-  vim.ui.input({ prompt = "Merge from branch: " }, merge_from)
+local function merge_from_ask()
+  vim.cmd(":Git fetch")
+
+  local actions = require("telescope.actions")
+  local action_state = require("telescope.actions.state")
+
+  require("telescope.builtin").git_branches({
+    attach_mappings = function(prompt_bufnr, map)
+      -- Map 'enter' in both insert (i) and normal (n) modes
+      local function custom_select()
+        local selection = action_state.get_selected_entry()
+        actions.close(prompt_bufnr) -- Must close manually
+
+        if selection then
+          merge_from(selection.value)
+        end
+      end
+
+      map("i", "<CR>", custom_select)
+      map("n", "<CR>", custom_select)
+
+      return true
+    end,
+  })
+end
+
+local function merge_from_default()
+  vim.cmd(":Git fetch")
+  merge_from(vim.fn['fugitive#Execute']({ 'symbolic-ref', 'refs/remotes/origin/HEAD' }).stdout[1])
 end
 
 return {
   "tpope/vim-fugitive",
   lazy = false,
+  -- stylua: ignore
   keys = {
     { "<leader>ga", "<cmd>Git add *<cr>", desc = "Add *" },
     { "<leader>gb", "<cmd>Telescope git_branches<cr>", desc = "Branches" },
@@ -32,8 +61,8 @@ return {
     { "<leader>gk", ask_commit_msg, desc = "Commit and Push" },
     { "<leader>gK", function() add_commit_push("auto commit") end, desc = "Auto Commit" },
     { "<leader>gl", "<cmd>Git log<cr>", desc = "Log" },
-    { "<leader>gm", function() add_commit_push("origin/master") end, desc = "Merge from master" },
-    { "<leader>gM", ask_merge_from, desc = "Merge from (ask)" },
+    { "<leader>gm", merge_from_default, desc = "Merge from (default)" },
+    { "<leader>gM", merge_from_ask, desc = "Merge from (ask)" },
     { "<leader>gp", "<cmd>Git push<cr>", desc = "Push" },
     { "<leader>gr", "<cmd>Git pull --rebase<cr>", desc = "Pull (Rebase)" },
     { "<leader>gs", "<cmd>Git stash<cr>", desc = "Stash" },
