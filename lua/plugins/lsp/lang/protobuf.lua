@@ -1,5 +1,10 @@
 return {
-  packages = {},
+  packages = {
+    {
+      "stevearc/conform.nvim",
+      opts = { formatters_by_ft = { proto = { "buf" } } },
+    },
+  },
 
   mason_packages = { "buf" },
 

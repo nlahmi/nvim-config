@@ -2,11 +2,7 @@ return {
   packages = {
     {
       "stevearc/conform.nvim",
-      opts = {
-        formatters_by_ft = {
-          TBD = { "TBD" },
-        },
-      },
+      opts = { formatters_by_ft = { TBD = { "TBD" } } },
     },
   },
 
