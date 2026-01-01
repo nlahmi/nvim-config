@@ -1,5 +1,14 @@
 return {
-  packages = {},
+  packages = {
+    {
+      "stevearc/conform.nvim",
+      opts = {
+        formatters_by_ft = {
+          TBD = { "TBD" },
+        },
+      },
+    },
+  },
 
   mason_packages = {},
 
@@ -7,7 +16,7 @@ return {
 
   lsp_config = {
     function(_, capabilities, custom_attach)
-      vim.lsp.config("CHANGEME", {
+      vim.lsp.config("TBD", {
         on_attach = custom_attach,
         capabilities = capabilities,
       })
