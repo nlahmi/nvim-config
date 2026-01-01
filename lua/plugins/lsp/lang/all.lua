@@ -16,6 +16,7 @@ local all_langs = {
     require("plugins.lsp.lang.bazel"),
     require("plugins.lsp.lang.sh"),
     require("plugins.lsp.lang.awk"),
+    require("plugins.lsp.lang.protobuf"),
 }
 
 local out = {
