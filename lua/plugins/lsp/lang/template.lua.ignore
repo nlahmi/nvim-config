@@ -1,13 +1,16 @@
 return {
-    packages = {
-    },
+  packages = {},
 
-    mason_packages = {
-    },
+  mason_packages = {},
 
-    nonls_packages = {
-    },
+  nonls_packages = {},
 
-    lsp_config = {
-    },
+  lsp_config = {
+    function(_, capabilities, custom_attach)
+      vim.lsp.config("CHANGEME", {
+        on_attach = custom_attach,
+        capabilities = capabilities,
+      })
+    end,
+  },
 }
