@@ -136,6 +136,7 @@ vim.keymap.set("n", "[w", diagnostic_goto(false, "WARN"), { desc = "Prev Warning
 -- lazygit
 --vim.keymap.set("n", "<leader>gg", function() Util.terminal({ "lazygit" }, { cwd = Util.root(), esc_esc = false, ctrl_hjkl = false }) end, { desc = "Lazygit (root dir)" })
 --vim.keymap.set("n", "<leader>gG", function() Util.terminal({ "lazygit" }, {esc_esc = false, ctrl_hjkl = false}) end, { desc = "Lazygit (cwd)" })
+vim.keymap.set("n", "<leader>gA", "<cmd>redir @z<cr><cmd>!gh auth switch<cr><cmd>redir END<cr><cmd>reg z<cr>", { desc = "GH Auth Switch" })
 
 -- quit
 vim.keymap.set("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit all" })
