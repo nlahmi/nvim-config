@@ -5,6 +5,7 @@ return {
   -- stylua: ignore
   keys = {
     { "<leader>cf", function() require("conform").format({ async = true }) end, desc = "Format (Conform)" },
+    { "<leader>cf", function() require("conform").format({ async = true }) end, mode = "v", desc = "Range Format (Conform)" },
   },
   -- This will provide type hinting with LuaLS
   ---@module "conform"
