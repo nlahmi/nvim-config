@@ -18,7 +18,7 @@ sudo apt install ripgrep fd-find git python3 python3-venv python3-pip npm xclip 
 
 # Install from appimage since apt is always outdated
 # https://github.com/neovim/neovim/releases/download/v0.11.0/nvim-linux-x86_64.appimage
-curl -LO https://github.com/neovim/neovim/releases/download/v0.11.0/nvim-linux-x86_64.appimage
+curl -LO https://github.com/neovim/neovim/releases/download/v0.11.5/nvim-linux-x86_64.appimage
 mv nvim-linux-x86_64.appimage nvim.appimage
 chmod 755 nvim.appimage
 sudo chown root:root nvim.appimage
