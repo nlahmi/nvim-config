@@ -40,6 +40,7 @@ return {
   },
   {
     "mfussenegger/nvim-dap",
+    tag = "0.10.0",
     dependencies = {
       -- Fancy UI for the debugger
       { "rcarriga/nvim-dap-ui" },

@@ -93,6 +93,32 @@ return {
 
       local py_path = get_py_exe()
 
+      local dap = require("dap")
+      -- dap.adapters.python = function(cb, config)
+      --   if config.request == "attach" then
+      --     -- Connect directly for attach
+      --     local port = (config.connect or config).port
+      --     local host = (config.connect or config).host or "127.0.0.1"
+      --     cb({
+      --       type = "server",
+      --       port = assert(port, "`connect.port` is required for a python `attach` configuration"),
+      --       host = host,
+      --       options = {
+      --         source_filetype = "python",
+      --       },
+      --     })
+      --   else
+      --     -- Use the executable for launch (normal debugging)
+      --     cb({
+      --       type = "executable",
+      --       command = "/home/noam/.local/share/nvim/mason/bin/debugpy-adapter",
+      --       options = {
+      --         source_filetype = "python",
+      --       },
+      --     })
+      --   end
+      -- end
+
       dap.adapters.python.options = { env = { PYDEVD_UNBLOCK_THREADS_TIMEOUT = "3" } }
 
       -- Insert our default configs
