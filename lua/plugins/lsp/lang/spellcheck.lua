@@ -9,7 +9,8 @@ return {
 
   lsp_config = {
     function(_, capabilities, custom_attach)
-      vim.lsp.config("harper_ls",{
+      vim.lsp.config("harper_ls", {
+        filetypes = { "md", "markdown" },
         settings = {
           ["harper-ls"] = {
             linters = {
@@ -27,7 +28,7 @@ return {
               -- number_suffix_capitalization = true,
               -- multiple_sequential_pronouns = true,
 
-              -- diagnosticSeverity = "hint" -- Can also be "information", "warning", or "error"
+              -- diagnosticSeverity = "hint" - - Can also be "information", "warning", or "error"
 
               codeActions = {
                 forceStable = true,
