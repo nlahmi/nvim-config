@@ -41,9 +41,9 @@ local custom_attach = function(client, bufnr)
   map("n", "gr", "<cmd>Telescope lsp_references include_declaration=false<cr>", { desc = "Show References (Telescope)" })
   map("n", "gR", vim.lsp.buf.references, { desc = "Show References (qf)" })
   -- stylua: ignore
-  map("n", "[d", function() diagnostic.jump({ count = -1, float = true }) end, { desc = "Previous Piagnostic" })
+  -- map("n", "[d", function() diagnostic.jump({ count = -1, float = true }) end, { desc = "Previous Piagnostic" })
   -- stylua: ignore
-  map("n", "]d", function() diagnostic.jump({ count = 1, float = true }) end, { desc = "Next Diagnostic" })
+  -- map("n", "]d", function() diagnostic.jump({ count = 1, float = true }) end, { desc = "Next Diagnostic" })
   -- This puts diagnostics from opened files to quickfix
   -- stylua: ignore
   map("n", "<leader>xw", diagnostic.setqflist, { desc = "Put Window Diagnostics to qf" })
