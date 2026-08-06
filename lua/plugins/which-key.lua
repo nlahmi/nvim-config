@@ -26,6 +26,7 @@ return {
             { "<leader>f", desc = "+file/find" },
             { "<leader>g", desc = "+git" },
             { "<leader>gh", desc = "+gitsigns" },
+            { "<leader>gV", desc = "+diff" },
             { "<leader>gW", desc = "+worktree" },
             -- { "<leader>m", desc = "+marks" },
             { "<leader>p", desc = "+plugins" },

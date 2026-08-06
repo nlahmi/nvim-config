@@ -3,6 +3,8 @@ vim.cmd("set tabstop=4")
 vim.cmd("set softtabstop=4")
 vim.cmd("set shiftwidth=4")
 vim.g.mapleader = " "
+-- octo's review mappings hang off localleader, which defaults to backslash
+vim.g.maplocalleader = ","
 
 vim.wo.number = true
 vim.wo.relativenumber = true
