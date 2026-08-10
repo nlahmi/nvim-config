@@ -9,7 +9,13 @@ return {
     keys = { { "<leader>pm", "<cmd>Mason<cr>", desc = "Mason" } },
     build = ":MasonUpdate",
     opts = {
-      ensure_installed = lang.mason_packages,
+      -- Local registry first: it overrides packages whose upstream spec does not
+      -- work here. See lua/mason-registry-local/.
+      registries = {
+        "lua:mason-registry-local",
+        "github:mason-org/mason-registry",
+      },
+      ensure_installed = vim.list_extend({ "tree-sitter-cli" }, lang.mason_packages),
     },
     config = function(_, opts)
       require("mason").setup(opts)
