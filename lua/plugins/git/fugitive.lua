@@ -64,7 +64,7 @@ return {
     { "<leader>gm", merge_from_default, desc = "Merge from (default)" },
     { "<leader>gM", merge_from_ask, desc = "Merge from (ask)" },
     { "<leader>gp", "<cmd>Git push<cr>", desc = "Push" },
-    { "<leader>gr", "<cmd>Git pull --rebase<cr>", desc = "Pull (Rebase)" },
+    { "<leader>gr", "<cmd>Git pull --rebase --autostash<cr>", desc = "Pull (Rebase)" },
     { "<leader>gs", "<cmd>Git stash<cr>", desc = "Stash" },
     { "<leader>gS", "<cmd>Git stash pop<cr>", desc = "Stash Pop" },
     { "<leader>g-", "<cmd>Git checkout -<cr>", desc = "Checkout Previous (-)" },
