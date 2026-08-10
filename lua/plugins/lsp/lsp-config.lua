@@ -73,7 +73,7 @@ local custom_attach = function(client, bufnr)
         focusable = false,
         close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
         border = "rounded",
-        source = "always", -- show source in diagnostic popup window
+        source = true, -- show source in diagnostic popup window
         prefix = " ",
       }
 

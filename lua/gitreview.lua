@@ -826,12 +826,12 @@ local function sync_hunk_maps()
     for _, lhs in ipairs({ "]c", "[c" }) do
       vim.keymap.set("n", lhs, function()
         vim.cmd("normal! " .. lhs)
-      end, { buffer = buf, desc = "Next/prev diff hunk" })
+      end, { buf = buf, desc = "Next/prev diff hunk" })
     end
     vim.b[buf].gitreview_hunk_maps = true
   elseif mapped then
-    pcall(vim.keymap.del, "n", "]c", { buffer = buf })
-    pcall(vim.keymap.del, "n", "[c", { buffer = buf })
+    pcall(vim.keymap.del, "n", "]c", { buf = buf })
+    pcall(vim.keymap.del, "n", "[c", { buf = buf })
     vim.b[buf].gitreview_hunk_maps = nil
   end
 end
