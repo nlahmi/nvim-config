@@ -12,6 +12,11 @@ local function extend_or_override(config, custom, ...)
 end
 
 return {
+  -- Rarely used: skips plugin + mason installs (jdtls, java-test,
+  -- java-debug-adapter). Java LSP is not wired up either way -- see the note on
+  -- the nvim-jdtls spec below. Flip to true to restore the installs.
+  enabled = false,
+
   packages = {
 
     {

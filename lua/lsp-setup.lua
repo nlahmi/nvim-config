@@ -141,8 +141,13 @@ function M.setup()
   -- Allow LSPs to use nvim-cmp's completion engine instead of nvim's
   local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+  -- Isolate failures: one language whose config errors must not stop the rest
+  -- from registering, or every server after it silently never starts.
   for _, f in pairs(lang.lsp_config) do
-    f(capabilities, custom_attach)
+    local ok, err = pcall(f, capabilities, custom_attach)
+    if not ok then
+      vim.notify("lsp-setup: server config failed: " .. tostring(err), vim.log.levels.ERROR)
+    end
   end
 
   vim.lsp.enable(lang.servers)

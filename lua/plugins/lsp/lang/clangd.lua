@@ -1,4 +1,9 @@
 return {
+  -- Rarely used: skips plugin + mason installs (clangd, codelldb, cpptools).
+  -- The LSP config below is still registered, so installing the mason
+  -- package is enough to make it work again. Flip to true to restore fully.
+  enabled = false,
+
   packages = {
     {
       "p00f/clangd_extensions.nvim",
