@@ -8,6 +8,9 @@ return {
         opts.sources = vim.list_extend(opts.sources or {}, {
           nls.builtins.diagnostics.markdownlint,
         })
+        -- must return: lazy takes the return value when opts is a function, so
+        -- mutating in place alone is thrown away
+        return opts
       end,
     },
     {

@@ -33,7 +33,7 @@ return {
 
   dap_config = {
     function(dap)
-      bashdap_path = vim.fn.stdpath("data") .. "/mason/packages/bash-debug-adapter"
+      local bashdap_path = vim.fn.stdpath("data") .. "/mason/packages/bash-debug-adapter"
       dap.adapters.sh = {
         type = "executable",
         command = bashdap_path .. "/bash-debug-adapter",

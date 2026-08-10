@@ -14,7 +14,7 @@ return {
 
         wk.add({
             { "g", desc = "+goto" },
-            { "gs", name = "+surround" },
+            { "gs", group = "surround" },
             { "]", desc = "+next" },
             { "[", desc = "+prev" },
             { "<leader><tab>", desc = "+tabs" },

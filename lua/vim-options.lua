@@ -27,5 +27,5 @@ vim.opt.termguicolors = true
 
 -- Auto Folding Detection
 vim.opt.foldmethod = "indent"
-vim.foldenable = false
+vim.opt.foldenable = false
 vim.opt.foldlevel = 99

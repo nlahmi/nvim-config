@@ -12,7 +12,7 @@ return {
   lsp_config = {
     function(capabilities, custom_attach)
       vim.lsp.config("harper_ls", {
-        filetypes = { "md", "markdown" },
+        filetypes = { "markdown" },
         settings = {
           ["harper-ls"] = {
             linters = {

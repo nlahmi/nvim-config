@@ -20,27 +20,12 @@ end
 -- end
 
 return {
-  {
-    "Joakker/lua-json5",
-    lazy = false,
-    -- build = "./install.sh",
-    -- NOTE: You need cargo (only worked for me using rustup)
-    build = function()
-      if vim.fn.has("unix") == 1 then
-        print("linux!")
-        return "./install.sh"
-      else
-        print("windows!")
-        return "powershell ./install.ps1"
-      end
-    end,
-    setup = function()
-      require("dap.ext.vscode").json_decode = require("json5").parse
-    end,
-  },
+  -- lua-json5 used to be here to parse launch.json. Dropped: overseer already
+  -- installs a decoder that handles comments and trailing commas (see
+  -- plugins.overseer), which is what launch.json files actually contain, and it
+  -- needs no cargo toolchain or compiled native module.
   {
     "mfussenegger/nvim-dap",
-    tag = "0.10.0",
     dependencies = {
       -- Fancy UI for the debugger
       { "rcarriga/nvim-dap-ui" },

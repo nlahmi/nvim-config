@@ -59,12 +59,13 @@ return {
     },
   },
   config = function(_, opts)
-    local nvim_bufferline = require("bufferline").setup(opts)
-    -- Fix bufferline when restoring a session
+    require("bufferline").setup(opts)
+    -- Fix bufferline when restoring a session. setup() returns nothing, so this
+    -- has to call the ui refresh directly.
     vim.api.nvim_create_autocmd("BufAdd", {
       callback = function()
         vim.schedule(function()
-          pcall(nvim_bufferline)
+          pcall(require("bufferline.ui").refresh)
         end)
       end,
     })

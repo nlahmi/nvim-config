@@ -33,6 +33,26 @@ return {
                     ["<C-Space>"] = cmp.mapping.complete(),
                     ["<C-e>"] = cmp.mapping.abort(),
                     ["<CR>"] = cmp.mapping.confirm({ select = true }),
+
+                    -- Jump between neogen docstring fields. Has to live here:
+                    -- cmp.setup replaces the config wholesale, so a second call
+                    -- in the neogen spec would drop everything above.
+                    ["<tab>"] = cmp.mapping(function(fallback)
+                        local ok, neogen = pcall(require, "neogen")
+                        if ok and neogen.jumpable() then
+                            neogen.jump_next()
+                        else
+                            fallback()
+                        end
+                    end, { "i", "s" }),
+                    ["<S-tab>"] = cmp.mapping(function(fallback)
+                        local ok, neogen = pcall(require, "neogen")
+                        if ok and neogen.jumpable() then
+                            neogen.jump_prev()
+                        else
+                            fallback()
+                        end
+                    end, { "i", "s" }),
                 }),
                 sources = cmp.config.sources({
                     -- { name = "path" },

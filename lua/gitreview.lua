@@ -522,6 +522,10 @@ end
 -- earlier than waiting for diff_buf_win_enter to settle.
 local hooked_views = {}
 
+-- Path the live preview last opened, so it can skip redundant reopens. Declared
+-- up here because select_and_focus below invalidates it.
+local live_last
+
 function M.hook_view()
   local view = current_view()
   if not view or not view.emitter or hooked_views[view] then
@@ -658,7 +662,6 @@ end
 -- The uppercase global survives restarts via shada, so the choice sticks.
 -- Read lazily, since shada restores after plugin files have run.
 local live_timer
-local live_last
 
 function M.live_enabled()
   local live = vim.g.GITREVIEW_LIVE

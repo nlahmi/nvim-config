@@ -27,7 +27,11 @@ return {
         { "<leader>rg", "<cmd>!gradle build<cr>", desc = "Build (Gradle)" },
       },
       ft = { "java" },
-      setup = function()
+      -- Was `setup`, which lazy.nvim ignores, so jdtls never actually started.
+      -- Renamed to a real key, but Java LSP is still not wired up on purpose --
+      -- see the commented lsp_config at the bottom of this file. Left as-is
+      -- until Java is actually needed.
+      config = function()
         local config = {
           root_dir = vim.fs.root(0, { ".git", "mvnw", "gradlew" }),
         }

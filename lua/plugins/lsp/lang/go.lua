@@ -67,7 +67,6 @@ return {
                 -- flags = {
                 --   debounce_text_changes = 200,
                 -- },
-                capabilities = capabilities,
             })
         end,
     },
