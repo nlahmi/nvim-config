@@ -10,13 +10,15 @@ return {
     { "https://github.com/Decodetalkers/csharpls-extended-lsp.nvim" },
   },
 
+  servers = { "csharp_ls" },
+
   mason_packages = { "csharp-language-server" },
 
   nonls_packages = {},
 
   lsp_config = {
 
-    function(_, capabilities, custom_attach)
+    function(capabilities, custom_attach)
       vim.lsp.config("csharp_ls", {
         capabilities = capabilities,
         on_attach = custom_attach,

@@ -42,6 +42,8 @@ return {
     },
   },
 
+  servers = { "jedi_language_server", "ruff" },
+
   mason_packages = {
     "jedi-language-server",
     "debugpy",
@@ -52,7 +54,7 @@ return {
   nonls_packages = {},
 
   lsp_config = {
-    function(_, capabilities, custom_attach)
+    function(capabilities, custom_attach)
       vim.lsp.config("jedi_language_server", {
         on_attach = custom_attach,
         capabilities = capabilities,

@@ -10,6 +10,8 @@ return {
     },
   },
 
+  servers = { "powershell_es" },
+
   mason_packages = {
     "powershell-editor-services",
   },
@@ -17,7 +19,7 @@ return {
   nonls_packages = {},
 
   lsp_config = {
-    function(_, capabilities, custom_attach)
+    function(capabilities, custom_attach)
       vim.lsp.config("powershell_es", {
         on_attach = custom_attach,
         capabilities = capabilities,

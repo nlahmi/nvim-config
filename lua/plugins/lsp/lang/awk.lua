@@ -10,6 +10,8 @@ return {
     },
   },
 
+  servers = { "awk_ls" },
+
   mason_packages = {
     "awk-language-server",
   },
@@ -17,7 +19,7 @@ return {
   nonls_packages = {},
 
   lsp_config = {
-    function(_, capabilities, custom_attach)
+    function(capabilities, custom_attach)
       vim.lsp.config("awk_ls", { on_attach = custom_attach, capabilities = capabilities })
     end,
   },

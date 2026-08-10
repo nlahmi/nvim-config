@@ -21,15 +21,6 @@ return {
       },
     },
     {
-      -- Todo: Check if this is actually required
-      "neovim/nvim-lspconfig",
-      opts = {
-        servers = {
-          marksman = {},
-        },
-      },
-    },
-    {
       "iamcco/markdown-preview.nvim",
       cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
       build = function()
@@ -112,6 +103,8 @@ return {
     },
   },
 
+  servers = { "marksman" },
+
   mason_packages = {
     "markdownlint",
     "marksman",
@@ -123,7 +116,7 @@ return {
   },
 
   lsp_config = {
-    function(_, capabilities, custom_attach)
+    function(capabilities, custom_attach)
       vim.lsp.config("marksman", { on_attach = custom_attach, capabilities = capabilities })
     end,
   },

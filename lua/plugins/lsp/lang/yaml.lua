@@ -37,6 +37,8 @@ return {
     -- },
   },
 
+  servers = { "yamlls" },
+
   mason_packages = {
     "yaml-language-server",
     -- "spectral-language-server",
@@ -46,7 +48,7 @@ return {
   nonls_packages = {},
 
   lsp_config = {
-    function(_, capabilities, custom_attach)
+    function(capabilities, custom_attach)
       vim.lsp.config("yamlls", {
         on_attach = custom_attach,
         capabilities = capabilities,

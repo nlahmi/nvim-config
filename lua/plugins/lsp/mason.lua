@@ -5,7 +5,7 @@ local lang = require("plugins.lsp.lang.all")
 return {
   {
     -- Source: https://www.lazyvim.org/plugins/lsp#masonnvim-1
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     keys = { { "<leader>pm", "<cmd>Mason<cr>", desc = "Mason" } },
     build = ":MasonUpdate",
     opts = {
@@ -39,11 +39,11 @@ return {
     end,
   },
   {
-    "williamboman/mason-lspconfig.nvim",
+    "mason-org/mason-lspconfig.nvim",
     lazy = false,
     opts = {
-      auto_install = true,
-      automatic_installation = true,
+      -- Servers are enabled explicitly in lua/lsp-setup.lua
+      automatic_enable = false,
     },
   },
 }

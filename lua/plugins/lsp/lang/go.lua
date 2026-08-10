@@ -5,7 +5,10 @@ return {
         },
     },
 
+    servers = { "gopls" },
+
     mason_packages = {
+        "gopls",
         "goimports",
         "gofumpt",
         "gomodifytags",
@@ -17,7 +20,7 @@ return {
 
     lsp_config = {
 
-        function(lspconfig, capabilities, custom_attach)
+        function(capabilities, custom_attach)
             vim.lsp.config("gopls", {
                 on_attach = custom_attach,
                 capabilities = capabilities,

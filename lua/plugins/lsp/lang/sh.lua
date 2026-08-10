@@ -15,6 +15,8 @@ return {
     },
   },
 
+  servers = { "bashls" },
+
   mason_packages = {
     "shfmt",
     "bash-language-server",
@@ -24,7 +26,7 @@ return {
   nonls_packages = {},
 
   lsp_config = {
-    function(_, capabilities, custom_attach)
+    function(capabilities, custom_attach)
       vim.lsp.config("bashls", { on_attach = custom_attach, capabilities = capabilities })
     end,
   },

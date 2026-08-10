@@ -10,6 +10,8 @@ return {
     },
   },
 
+  servers = { "vtsls" },
+
   mason_packages = {
     "vtsls",
   },
@@ -17,7 +19,7 @@ return {
   nonls_packages = {},
 
   lsp_config = {
-    function(_, capabilities, custom_attach)
+    function(capabilities, custom_attach)
       vim.lsp.config("vtsls", {
         capabilities = capabilities,
         on_attach = custom_attach,

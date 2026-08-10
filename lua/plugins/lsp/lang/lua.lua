@@ -22,6 +22,8 @@ return {
     -- { "folke/neodev.nvim", opts = {} },
   },
 
+  servers = { "lua_ls" },
+
   mason_packages = {
     "lua-language-server",
     "stylua",
@@ -30,7 +32,7 @@ return {
   nonls_packages = {},
 
   lsp_config = {
-    function(_, capabilities, custom_attach)
+    function(capabilities, custom_attach)
       vim.lsp.config("lua_ls", {
         on_attach = custom_attach,
         settings = {

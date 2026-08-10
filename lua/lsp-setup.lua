@@ -131,38 +131,21 @@ local custom_attach = function(client, bufnr)
   end
 end
 
-return {
-  {
-    "neovim/nvim-lspconfig",
-    lazy = false,
-    opts = {
-      format = { timeout_ms = 1000 },
-    },
-    config = function()
-      -- Allow LSPs to use nvim-cmp's completion engine instead of nvim's
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+-- Registers every server config with vim.lsp.config and enables them.
+-- Must run after lazy.setup(): capabilities come from cmp-nvim-lsp, and the
+-- cmd/filetypes/root_markers defaults come from nvim-lspconfig's lsp/ runtime
+-- files, which only exist on the rtp once lazy has loaded the plugin.
+local M = {}
 
-      -- Legacy
-      local lspconfig = require("lspconfig")
-      -- lspconfig.tsserver.setup({
-      --   capabilities = capabilities,
-      -- })
-      -- lspconfig.html.setup({
-      --   capabilities = capabilities,
-      -- })
-      -- lspconfig.lua_ls.setup({
-      --   capabilities = capabilities,
-      -- })
+function M.setup()
+  -- Allow LSPs to use nvim-cmp's completion engine instead of nvim's
+  local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-      -- TODO: Since nvim 0.11.0, there is a native way to setup LSPs (vim.lsp.config instead of lsp-config)
-      for _, f in pairs(lang.lsp_config) do
-        f(lspconfig, capabilities, custom_attach)
-      end
+  for _, f in pairs(lang.lsp_config) do
+    f(capabilities, custom_attach)
+  end
 
-      -- vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
-      -- vim.keymap.set("n", "<leader>cd", vim.lsp.buf.definition, { desc = "Go to Definition" })
-      -- vim.keymap.set("n", "<leader>cr", vim.lsp.buf.references, { desc = "Go to References" })
-      -- vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
-    end,
-  },
-}
+  vim.lsp.enable(lang.servers)
+end
+
+return M

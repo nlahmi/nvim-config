@@ -10,12 +10,14 @@ return {
     },
   },
 
+  servers = { "starpls" },
+
   mason_packages = { "starpls", "buildifier" },
 
   nonls_packages = {},
 
   lsp_config = {
-    function(_, capabilities, custom_attach)
+    function(capabilities, custom_attach)
       vim.lsp.config("starpls", {
         capabilities = capabilities,
         on_attach = custom_attach,

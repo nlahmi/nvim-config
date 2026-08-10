@@ -25,6 +25,8 @@ local out = {
   nonls_packages = {},
   lsp_config = {},
   dap_config = {},
+  -- LSP server names to pass to vim.lsp.enable
+  servers = {},
 }
 
 for _, curr_lang in ipairs(all_langs) do

@@ -1,6 +1,8 @@
 return {
   packages = {},
 
+  servers = { "harper_ls" },
+
   mason_packages = {
     "harper-ls",
   },
@@ -8,7 +10,7 @@ return {
   nonls_packages = {},
 
   lsp_config = {
-    function(_, capabilities, custom_attach)
+    function(capabilities, custom_attach)
       vim.lsp.config("harper_ls", {
         filetypes = { "md", "markdown" },
         settings = {

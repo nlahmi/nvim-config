@@ -47,6 +47,8 @@ return {
     -- },
   },
 
+  servers = { "clangd" },
+
   mason_packages = {
     "codelldb",
     "clangd",
@@ -56,7 +58,7 @@ return {
   nonls_packages = {},
 
   lsp_config = {
-    function(_, capabilities, custom_attach)
+    function(capabilities, custom_attach)
       vim.lsp.config("clangd", {
         capabilities = capabilities,
         on_attach = custom_attach,

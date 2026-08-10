@@ -25,7 +25,10 @@ return {
     },
   },
 
+  servers = { "neocmake" },
+
   mason_packages = {
+    "neocmakelsp",
     "cmakelang",
     "cmakelint",
   },
@@ -33,7 +36,7 @@ return {
   nonls_packages = {},
 
   lsp_config = {
-    function(_, capabilities, custom_attach)
+    function(capabilities, custom_attach)
       vim.lsp.config("neocmake", {
         capabilities = capabilities,
         on_attach = custom_attach,
